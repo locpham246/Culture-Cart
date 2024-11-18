@@ -22,7 +22,7 @@
   flex-direction: column;
   gap: 20px;
   padding: 50px 200px;
-  background-color: #f6ebf6;
+  background-color: #93d35a;
 
   @include mobile {
     padding: 10px;
@@ -48,7 +48,7 @@
 
       h2 {
         font-size: 2rem;
-        color: #333;
+        color: #074522;
         font-weight: bold;
       }
 
@@ -58,9 +58,9 @@
         align-items: center;
 
         select {
-          border: 1px solid gray;
+          border: 1px solid black;
           border-radius: 5px;
-          background-color: white;
+          background-color: black;
           color: black;
           font-size: 14px;
           color: black;
@@ -69,7 +69,7 @@
           padding: 10px 12px;
 
           option {
-            background-color: white;
+            background-color: black;
             padding: 10px;
             box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
             -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -96,7 +96,7 @@
         }
 
         p {
-          color: gray;
+          color: black;
           text-transform: capitalize;
         }
 
@@ -115,7 +115,7 @@
 
   .bottom p {
     text-align: start;
-    color: gray;
+    color: black;
     font-size: 14px;
   }
 }

@@ -12,34 +12,12 @@ const Footer = () => {
       <div className="top">
         <div className="top1">
           <h2>Culture Cart</h2>
-          <div className="lang">
-            <select>
-              <option value="United States">United States</option>
-              <option value="India">India</option>
-              <option value="Australia">Australia</option>
-              <option value="England">England</option>
-              <option value="France">France</option>
-              <option value="Brazil">Brazil</option>
-              <option value="England">England</option>
-              <option value="South Africa">South Africa</option>
-              <option value="Rusia">Rusia</option>
-            </select>
-            <select>
-              <option value="English">English</option>
-              <option value="Spanish">Spanish</option>
-              <option value="French">French</option>
-              <option value="Chinese">Chinese</option>
-              <option value="Hini">Hindi</option>
-
-            </select>
-          </div>
         </div>
         <div className="bottom1">
           <div className="bottomContent">
             <h4>ABOUT Culture Cart</h4>
             <p>Who We Are</p>
             <p>Investor Relations</p>
-            <p>Report Fraud</p>
             <p>Contact Us</p>
           </div>
           <div className="bottomContent">
@@ -53,7 +31,6 @@ const Footer = () => {
             <p>Privacy</p>
             <p>Security</p>
             <p>Terms</p>
-            <p>Sitemap</p>
           </div>
           <div className="bottomContent">
             <h4>SOCIAL LINKS</h4>
