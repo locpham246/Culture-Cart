@@ -1,22 +1,21 @@
-import Header from "./components/Header/Header";
 import "./app.scss";
-import Footer from "./components/Footer/Footer";
-import AccContainer from "./components/AccContainer/AccContainer";
-import CTA from "./components/CTA/CTA";
-import Cities from "./components/Cities/Cities";
-import Collection from "./components/Collections/Collection";
-import Card from "./components/Card/Card";
+import HomePage from "./pages/Home"
+import SignInPage from "./pages/SignIn";
+import SignUpPage from "./pages/SignUp";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Card />
-      <Collection />
-      <Cities />
-      <CTA />
-      <AccContainer />
-      <Footer />
+      <Router>
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="/signin" element={<SignInPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+        </Routes>
+    </Router> 
     </div>
   );
 }

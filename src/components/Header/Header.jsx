@@ -1,34 +1,38 @@
 import React, { useState } from "react";
 import "./Header.scss";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import SearchIcon from "@mui/icons-material/Search"; 
+import SearchIcon from "@mui/icons-material/Search";
 import blackLogo from "../../assets/images/blackLogo.webp";
+import signinImage from "../../assets/images/SignIn.png";
+import signupImage from "../../assets/images/SignUp.png";
+import logoImage from "../../assets/images/Logo.png";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="header">
-
       <nav>
+        <div className="logoContainer">
+          <a href="/">
+            <img src={logoImage} alt="Logo" className="logoImage" />
+          </a>
+        </div>
         <div className="right">
-          <span>Log in</span>
-          <span>Sign up</span>
+          <a href="/signin">
+            <img src={signinImage} alt="Sign In" />
+          </a>
+          <a href="/signup">
+            <img src={signupImage} alt="Sign Up" />
+          </a>
         </div>
       </nav>
-
-      <div className="hamburger" onClick={() => setOpen(!open)}>
-        {open ? <CloseIcon style={{ color: "black" }} /> : <MenuIcon />}
-      </div>
 
       {open && (
         <div className="sideMenu">
           <img src={blackLogo} alt="logo" />
           <div className="innerMenu">
-
-            <span>Log In</span>
-            <span>Sign Up</span>
+            <a href="/login"><span>Log In</span></a>
+            <a href="/signup"><span>Sign Up</span></a>
           </div>
         </div>
       )}
@@ -37,7 +41,7 @@ const Header = () => {
         <h4 className="logo">Culture Cart</h4>
         <div className="input">
           <input type="text" placeholder="Search" />
-          <SearchIcon className="searchIcon" /> 
+          <SearchIcon className="searchIcon" />
         </div>
       </div>
     </div>
@@ -45,4 +49,3 @@ const Header = () => {
 };
 
 export default Header;
-
