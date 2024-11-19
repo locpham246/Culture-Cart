@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0b45ff10.css",
+    "main.js": "/static/js/main.1c105591.js",
+    "static/media/Online-Food.png": "/static/media/Online-Food.a3c00c6a2f11f6e80733.png",
+    "static/media/BackGround.png": "/static/media/BackGround.ed059ad3e428eb5e825b.png",
+    "static/media/Dine-Out.png": "/static/media/Dine-Out.1309eb06207afbea77b2.png",
+    "static/media/Night-Life.png": "/static/media/Night-Life.88540496c94a542a4965.png",
+    "static/media/collection3.webp": "/static/media/collection3.529bb365afa28d81bea5.webp",
+    "static/media/collection1.webp": "/static/media/collection1.58bc82b82edbd3b77183.webp",
+    "static/media/collection2.webp": "/static/media/collection2.ad8b4af2bca0f0aa7e86.webp",
+    "static/media/collection4.webp": "/static/media/collection4.feca610a7de25142be3e.webp",
+    "static/media/blackLogo.webp": "/static/media/blackLogo.6a4e93ef665f732911ad.webp",
+    "index.html": "/index.html",
+    "main.0b45ff10.css.map": "/static/css/main.0b45ff10.css.map",
+    "main.1c105591.js.map": "/static/js/main.1c105591.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0b45ff10.css",
+    "static/js/main.1c105591.js"
+  ]
+}

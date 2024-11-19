@@ -1,23 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
-@mixin mobile {
-  @media screen and (max-width: 480px) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media screen and (min-width: 480px) and (max-width: 768px) {
-    @content;
-  }
-}
-
-@mixin laptop {
-  @media screen and (min-width: 1024px) {
-    @content;
-  }
-}
-
 .header {
   position: relative;
   background: url("../../assets/images/BackGround.png");
@@ -25,47 +7,43 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 65vh;
-
-  @include mobile {
-    height: 50vh;
-  }
+  height: 60vh;
 
   nav {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 15px 10px;
-
-    @include mobile {
-      display: none;
-    }
-
-    @include tablet {
-      display: none;
-    }
-
-    @include laptop {
-      display: flex;
-    }
-
-    span {
-      color: white;
-      font-size: 16px;
-    }
-
-    .right {
-      margin-left: 100px;
+    justify-content: space-between;
+    padding: 15px 20px;
+  
+    .logoContainer {
       display: flex;
       justify-content: center;
+      width: 100%;
+      position: absolute;
+      top: 10px; /* Keep the logo fixed at the top center */
+      left: 50%;
+      transform: translateX(-50%);
+  
+      .logoImage {
+        width: 120px; /* Adjust the size */
+        height: auto;
+      }
+    }
+  
+    .right {
+      display: flex;
       gap: 20px;
-
-      span {
-        color: white;
-        font-size: 18px;
+      position: absolute; /* Allow independent positioning of the buttons */
+      top: 30px; /* Adjust height to lower the buttons slightly */
+      right: 50px; /* Move the buttons slightly to the left */
+  
+      a img {
+        width: 100px; /* Slightly reduce button size */
+        height: auto;
       }
     }
   }
+  
 
   .logo {
     font-size: 4.5rem;
@@ -84,28 +62,25 @@
     cursor: pointer;
     position: relative;
 
-    @include laptop {
-      display: none;
-    }
   }
 
   .sideMenu {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 0; /* Align to the right side */
+    width: 250px; /* Adjust width as needed */
     height: 100vh;
     background-color: white;
     z-index: 3;
     transition: all 0.4s ease;
-
+  
     img {
       width: 200px;
       position: absolute;
       top: 25px;
-      right: 10px;
+      left: 10px; /* Keep logo on the left side of the side menu */
     }
-
+  
     .innerMenu {
       display: flex;
       flex-direction: column;
@@ -113,15 +88,16 @@
       position: absolute;
       justify-content: flex-start;
       gap: 30px;
-      top: 20%;
-
-      span {
-        font-size: 18px;
-        color: gray;
-        font-weight: normal;
+      top: 30%; /* Adjust for better vertical alignment if needed */
+      right: 0; /* Ensure it's aligned to the right side of the side menu */
+  
+      a img {
+        width: 100%; /* Make images fill the container or adjust width */
+        cursor: pointer; /* Make images appear clickable */
       }
     }
   }
+  
 
   .headerContent {
     position: absolute;
@@ -136,13 +112,6 @@
     img {
       max-width: 400px;
 
-      @include mobile {
-        width: 200px;
-      }
-
-      @include tablet {
-        width: 300px;
-      }
     }
 
     h3 {
@@ -150,16 +119,8 @@
       font-size: 2rem;
       font-weight: normal;
       letter-spacing: 0.2rem;
-      @include mobile {
-        letter-spacing: normal;
-        font-size: 1rem;
-      }
-
-      @include tablet {
-        letter-spacing: normal;
-        font-size: 1.5rem;
-      }
     }
+
     .input {
       min-width: 50%;
       height: 55px;
