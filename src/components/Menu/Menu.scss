@@ -1,4 +1,3 @@
-// Variables
 $menu-width: 250px;
 $menu-bg-color: #074522; // Different background color for side menu
 $button-bg-color: #4D7E29; // Different background color for the button
@@ -12,7 +11,7 @@ $overlay-bg-color: rgba(0, 0, 0, 0.2);
   .menu-button {
     position: fixed;
     top: 30px;
-    left: 30px;
+    left: 40px;
     padding: 10px 20px;
     background-color: $button-bg-color;
     color: $link-color;
@@ -21,9 +20,19 @@ $overlay-bg-color: rgba(0, 0, 0, 0.2);
     cursor: pointer;
     z-index: 1001;
     font-size: 16px;
+    display: flex; // Use flex to align the icon and text
+    align-items: center; // Vertically center the icon and text
+    justify-content: center; // Horizontally center the content
 
     &:hover {
       background-color: darken($button-bg-color, 10%);
+    }
+
+    .menu-icon {
+      margin-right: 10px; // Space between the icon and the text
+      font-size: 20px; // Adjust the icon size
+      position: relative; // Allows movement relative to the button
+      left: -7px; // Move the icon slightly to the left
     }
   }
 
@@ -48,9 +57,11 @@ $overlay-bg-color: rgba(0, 0, 0, 0.2);
       margin: 0;
 
       li {
-        margin: 15px 0;
+        margin: 25px 0;
 
         a {
+          display: flex;
+          align-items: center; // Align icon and text horizontally
           text-decoration: none;
           color: $link-color;
           font-size: 18px;
@@ -58,6 +69,11 @@ $overlay-bg-color: rgba(0, 0, 0, 0.2);
 
           &:hover {
             color: $link-hover-color;
+          }
+
+          .menu-icon {
+            margin-right: 15px; // Space between icon and text
+            font-size: 20px; // Adjust the icon size as needed
           }
         }
       }
