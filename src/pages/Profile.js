@@ -4,7 +4,7 @@ import ProfileFeature from "../components/ProfileInfo/ProfileInfo";
 
 export default function Profile() {
     return (
-      <div className="SignIn">
+      <div className="Profile">
           <Lines/>
           <MenuFeature/>
           <ProfileFeature/>

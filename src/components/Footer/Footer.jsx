@@ -10,12 +10,10 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="top">
-        <div className="top1">
-          <h2>Culture Cart</h2>
-        </div>
+
         <div className="bottom1">
           <div className="bottomContent">
-            <h4>ABOUT Culture Cart</h4>
+            <h4>ABOUT CULTURE CART</h4>
             <p>Who We Are</p>
             <p>Investor Relations</p>
             <p>Contact Us</p>
@@ -48,9 +46,7 @@ const Footer = () => {
       <div className="bottom">
         <p>
           By continuing past this page, you agree to our Terms of Service,
-          Cookie Policy, Privacy Policy and Content Policies. All trademarks are
-          properties of their respective owners. 2008-2022 © Zomato™ Ltd. All
-          rights reserved.
+          Cookie Policy, Privacy Policy and Content Policies.
         </p>
       </div>
     </div>
