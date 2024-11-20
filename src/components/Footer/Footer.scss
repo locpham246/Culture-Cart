@@ -1,15 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
-@mixin mobile {
-  @media screen and (max-width: 480px) {
-    @content;
-  }
-}
-@mixin tablet {
-  @media screen and (min-width: 480px) and (max-width: 768px) {
-    @content;
-  }
-}
 @mixin laptop {
   @media screen and (min-width: 1024px) {
     @content;
@@ -24,14 +14,6 @@
   padding: 50px 200px;
   background-color: #93d35a;
 
-  @include mobile {
-    padding: 10px;
-  }
-
-  @include tablet {
-    padding: 10px 30px;
-  }
-
   .top {
     display: flex;
     flex-direction: column;
@@ -41,16 +23,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      @include mobile {
-        flex-direction: column;
-      }
-
-      h2 {
-        font-size: 2rem;
-        color: #074522;
-        font-weight: bold;
-      }
 
       .lang {
         display: flex;
@@ -114,7 +86,7 @@
   }
 
   .bottom p {
-    text-align: start;
+    text-align: center;
     color: black;
     font-size: 14px;
   }
