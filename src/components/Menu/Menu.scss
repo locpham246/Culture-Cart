@@ -1,0 +1,92 @@
+$menu-width: 250px;
+$menu-bg-color: #074522; // Different background color for side menu
+$button-bg-color: #4D7E29; // Different background color for the button
+$link-color: #ecf0f1;
+$link-hover-color: #4D7E29;
+$overlay-bg-color: rgba(0, 0, 0, 0.2);
+
+.menu-container {
+  position: relative;
+
+  .menu-button {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    padding: 10px 20px;
+    background-color: $button-bg-color;
+    color: $link-color;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001;
+    font-size: 16px;
+    display: flex; // Use flex to align the icon and text
+    align-items: center; // Vertically center the icon and text
+    justify-content: center; // Horizontally center the content
+
+    &:hover {
+      background-color: darken($button-bg-color, 10%);
+    }
+
+    .menu-icon {
+      margin-right: 10px; // Space between the icon and the text
+      font-size: 20px; // Adjust the icon size
+      position: relative; // Allows movement relative to the button
+      left: -7px; // Move the icon slightly to the left
+    }
+  }
+
+  .side-menu {
+    position: fixed;
+    top: 0;
+    left: -$menu-width;
+    width: $menu-width;
+    height: 100%;
+    background-color: $menu-bg-color;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    z-index: 1000;
+
+    &.open {
+      left: 0;
+    }
+
+    .menu-links {
+      list-style: none;
+      padding: 80px 50px; // Lower the text to avoid overlap with the menu button
+      margin: 0;
+
+      li {
+        margin: 25px 0;
+
+        a {
+          display: flex;
+          align-items: center; // Align icon and text horizontally
+          text-decoration: none;
+          color: $link-color;
+          font-size: 18px;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $link-hover-color;
+          }
+
+          .menu-icon {
+            margin-right: 15px; // Space between icon and text
+            font-size: 20px; // Adjust the icon size as needed
+          }
+        }
+      }
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $overlay-bg-color;
+    z-index: 999;
+  }
+}

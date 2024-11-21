@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+a:nth-of-type(1) img {
+  width: 70px;
+  height: auto; /* Maintain aspect ratio */
+}
+
+.logo-image {
+  position: absolute; /* Allow positioning relative to the viewport */
+  top: 15px; /* Distance from the top */
+  right: 50px; /* Distance from the right */
+}
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  font-family: "Poppins", sans-serif;
+
+  .login-container {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px 30px;
+    border-radius: 8px;
+    text-align: center;
+
+    h4 {
+      font-size: 3rem;
+      font-weight: 1000;
+      font-family: "Georgia";
+      color: #0A3500;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333333;
+    }
+
+    .email-box,
+    .password-box_signin {
+      margin-bottom: 20px;
+      text-align: left;
+
+      label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #555;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+
+        &:focus {
+          outline: none;
+          border-color: #4D7E29;
+        }
+      }
+    }
+
+    .forgot-password {
+      margin-top: 15px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      text-align: left;
+
+      a {
+        color: #4D7E29;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .signin-button {
+      width: 50%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: #4D7E29;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #4D7E29;
+      }
+    }
+
+    .signup-link {
+      margin-top: 15px;
+      font-size: 16px;
+
+      a {
+        color: #4D7E29;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
