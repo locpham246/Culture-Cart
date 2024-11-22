@@ -5,6 +5,7 @@ import blackLogo from "../../assets/images/blackLogo.webp";
 import signinImage from "../../assets/images/SignIn.png";
 import signupImage from "../../assets/images/SignUp.png";
 import logoImage from "../../assets/images/Logo.png";
+import cartImage from "../../assets/images/Cart.png";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -23,6 +24,9 @@ const Header = () => {
           </a>
           <a href="/signup">
             <img src={signupImage} alt="Sign Up" />
+          </a>
+          <a href="/cart">
+          <img src={cartImage} alt="Cart" />
           </a>
         </div>
       </nav>
