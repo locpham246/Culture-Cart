@@ -1,4 +1,4 @@
-# Culture Carrt
+# Culture Cart
 
 This is the 4330 group project building a web application for laptops and desktops. This application is an online store and food delivery service created for niche cultural and ethnic groups.
 
