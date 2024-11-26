@@ -8,7 +8,12 @@ export default function Home() {
       <div className="Home">
           <Header />
           <Menu />
-          <Items />
+          <Items 
+             itemsPerPage={6}
+             gridColumns={6}
+             title="Featured Items"
+             showArrows={true}
+           />
           <Footer />
       </div>
     );

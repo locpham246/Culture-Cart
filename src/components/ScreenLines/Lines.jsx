@@ -1,5 +1,3 @@
-
-
 const Lines = () => {
 
   // Lines for the screen

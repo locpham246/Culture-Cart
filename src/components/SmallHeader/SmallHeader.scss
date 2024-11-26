@@ -1,16 +1,75 @@
 .app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  background-color: rgb(240, 240, 240);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  .search-logo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 50px;
-    background-color: rgb(240, 240, 240);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-  
-    .menu-button,
+    justify-content: center;
+    padding: 0px 60px;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #000000;
+    border-radius: 25px;
+    padding: 5px 10px;
+    background-color: #f5f5f5;
+
+    i,
+    svg {
+      font-size: 22px;
+      color: black;
+      margin-right: 10px;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+      flex-grow: 1;
+      font-size: 16px;
+      color: #333;
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+  }
+
+  .icon-group {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between icons */
+
+    .cart-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    
+      margin-top: 8px;
+      margin-right: 10px; 
+    
+      img {
+        width: 32px;
+        height: auto;
+      }
+    }
+    
+
     .notification-button,
     .profile-button {
       background: none;
@@ -19,72 +78,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-  
-      i,
-      svg {
-        font-size: 32px; /* Make the icons larger */
-        color: #074522; /* Matching green color */
-      }
-  
-      /* Add padding for better spacing */
       padding: 8px;
-    }
-  
-    .search-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  
+
       svg {
-        width: 32px; /* Slightly larger for emphasis */
-        height: absolute;
+        font-size: 32px;
         color: #074522;
-      }
-  
-      /* Add padding for alignment */
-      padding: 0px 20px;
-    }
-
-    .notification-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      /* Add padding for alignment */
-      padding: 0px 30px;
-    }
-  
-    .search-bar {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      width: 50%; /* Set the width to half the screen */
-      max-width: 800px; /* Optional: Limit the maximum width */
-      margin: 0 auto; /* Center the search bar horizontally */
-      border: 1px solid #000000;
-      border-radius: 25px;
-      padding: 5px 10px;
-      background-color: #f5f5f5;
-  
-      i,
-      svg {
-        font-size: 22px; /* Larger icon inside the search bar */
-        color: black;
-        margin-right: 10px;
-      }
-  
-      input {
-        border: none;
-        outline: none;
-        background: transparent;
-        flex-grow: 1;
-        font-size: 16px;
-        color: #333;
-  
-        &::placeholder {
-          color: #aaa;
-        }
       }
     }
   }
-  
+}
