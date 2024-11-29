@@ -32,7 +32,7 @@ const SignUpPage = () => {
 
     setLoading(true);
     axios
-      .post("http://localhost:3000/auth/signup", { email, password, confirm })
+      .post("http://localhost:5000/auth/signup", { email, password, confirm })
       .then((response) => {
         if (response.data.status) {
           navigate('/signin');
