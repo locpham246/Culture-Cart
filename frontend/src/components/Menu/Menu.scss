@@ -1,0 +1,93 @@
+$menu-width: 250px;
+$menu-bg-color: #074522; // Dark green color for side menu
+$menu-button-color: #074522; // Dark green color for the menu button
+$menu-button-color-open: #ffffff; // White color when the menu is open
+$link-color: #ecf0f1;
+$link-hover-color: #4D7E29;
+$overlay-bg-color: rgba(0, 0, 0, 0.2);
+
+.menu-container {
+  position: relative;
+
+  .menu-button {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background-color: transparent; // Remove background from button
+    border: none;
+
+    svg {
+      font-size: 32px;
+      color: $menu-button-color; // Default dark green color
+    }
+
+    &.open {
+      svg {
+        color: $menu-button-color-open; // Change icon color to white when menu is open
+      }
+    }
+  }
+
+  .side-menu {
+    position: fixed;
+    top: 0;
+    left: -$menu-width;
+    width: $menu-width;
+    height: 100%;
+    background-color: $menu-bg-color; // Default dark green color
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+
+    &.open {
+      left: 0;
+    }
+
+    .menu-links {
+      list-style: none;
+      padding: 80px 50px; // Lower the text to avoid overlap with the menu button
+      margin: 0;
+
+      li {
+        margin: 25px 0;
+
+        a {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          color: $link-color;
+          font-size: 18px;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $link-hover-color;
+          }
+
+          .menu-icon {
+            margin-right: 15px;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $overlay-bg-color;
+    z-index: 999;
+  }
+}
