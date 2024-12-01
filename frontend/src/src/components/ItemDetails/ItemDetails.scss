@@ -1,0 +1,140 @@
+// ItemDetails.scss
+.item-details {
+    padding: 20px;
+    color: #4a4a4a;
+  
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .product {
+      display: flex;
+      gap: 20px;
+  
+      .product-images {
+        flex: 1;
+  
+        .main-image {
+          width: 100%;
+          height: auto;
+          border: 2px solid #ccc;
+          border-radius: 8px;
+        }
+  
+        .image-thumbnails {
+          display: flex;
+          gap: 10px;
+          margin-top: 10px;
+  
+          img {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 5px;
+  
+            &:hover {
+              border-color: #4caf50;
+            }
+          }
+        }
+      }
+  
+      .product-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+  
+        h2 {
+          font-size: 20px;
+          color: #333;
+        }
+  
+        .price {
+          font-size: 18px;
+          color: #4caf50;
+        }
+  
+        .stock {
+          font-size: 16px;
+          color: #777;
+        }
+  
+        .weight-selection {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+  
+          .weights {
+            display: flex;
+            gap: 10px;
+  
+            button {
+              padding: 5px 10px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              background-color: #fff;
+              cursor: pointer;
+              font-size: 14px;
+  
+              &.active {
+                background-color: #4caf50;
+                color: #fff;
+                border-color: #4caf50;
+              }
+  
+              &:hover {
+                border-color: #4caf50;
+              }
+            }
+          }
+        }
+  
+        .actions {
+          display: flex;
+          gap: 10px;
+  
+          button {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+  
+            &.add-to-cart {
+              background-color: #ff9800;
+              color: #fff;
+            }
+  
+            &.buy-now {
+              background-color: #4caf50;
+              color: #fff;
+            }
+  
+            &:hover {
+              opacity: 0.9;
+            }
+          }
+        }
+      }
+    }
+  
+    .additional-info {
+      margin-top: 20px;
+  
+      h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+    }
+  }
+  

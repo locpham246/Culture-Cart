@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+@mixin laptop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px 200px;
+  background-color: #93d35a;
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .top1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .lang {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        select {
+          border: 1px solid black;
+          border-radius: 5px;
+          background-color: black;
+          color: black;
+          font-size: 14px;
+          color: black;
+          outline: none;
+          scroll-behavior: smooth;
+          padding: 10px 12px;
+
+          option {
+            background-color: black;
+            padding: 10px;
+            box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+          }
+        }
+      }
+    }
+
+    .bottom1 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+      .bottomContent {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        h4 {
+          font-size: 18px;
+          font-weight: normal;
+          letter-spacing: 0.1rem;
+        }
+
+        p {
+          color: black;
+          text-transform: capitalize;
+        }
+
+        .links {
+          display: flex;
+          gap: 10px;
+          cursor: pointer;
+        }
+
+        img {
+          width: 150px;
+        }
+      }
+    }
+  }
+
+  .bottom p {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+  }
+}
