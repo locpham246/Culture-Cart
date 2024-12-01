@@ -1,31 +1,3 @@
-// import "./app.scss";
-// import HomePage from "./pages/Home";
-// import SignInPage from "./pages/SignIn";
-// import SignUpPage from "./pages/SignUp";
-// import ProfilePage from "./pages/Profile";
-// import CartPage from "./pages/Cart";
-// import React from "react";
-// // import ForgotPage from "./pages/Forgot";
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Router>
-//         <Routes>
-//           <Route path="/" element={<HomePage />} /> 
-//           <Route path="/signin" element={<SignInPage />} />
-//           <Route path="/signup" element={<SignUpPage />} />
-//           <Route path="/profile" element={<ProfilePage />} />
-//           <Route path="/cart" element={<CartPage />} />
-//          {/* <Route path="/forgot-password" element={<ForgotPage />} /> */}
-//         </Routes>
-//       </Router>
-//     </div>
-//   );
-// }
-
-// export default App;
 import "./app.scss";
 import HomePage from "./pages/Home";
 import SignInPage from "./pages/SignIn";
@@ -40,13 +12,13 @@ import { setUser } from "./store/userSlice";  // import setUser từ Redux
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-  const dispatch = useDispatch();  // khởi tạo dispatch để dispatch actions
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const token = localStorage.getItem("authToken");  // lấy token từ localStorage
+    const token = localStorage.getItem("authToken");
     if (token) {
-      const user = { name: "Sample User" }; // Bạn có thể gọi API để lấy thông tin người dùng từ server nếu cần
-      dispatch(setUser({ user, token }));  // Dispatch action để lưu thông tin người dùng vào Redux store
+      const user = { name: "Sample User" }; 
+      dispatch(setUser({ user, token }));
     }
   }, [dispatch]);
 
@@ -60,7 +32,10 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/product" element={<ProductPage />} />
+          <Route path="/product/*" element={<ProductPage />} />
+          {/* <Route path="/delivery_order" element={<OrderPage />} /> */}
+          {/* <Route path="/driver_deliveries" element={<DriverDeliveriesPage />} /> */}
+          {/* <Route path="/driver_order" element={<DriverOrderPage />} /> */}
         </Routes>
       </Router>
     </div>
@@ -68,5 +43,4 @@ function App() {
 }
 
 export default App;
-
 

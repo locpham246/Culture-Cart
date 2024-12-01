@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SearchItemsList.scss";
+import { Link } from "react-router-dom";
 
 
 import item1 from "../../assets/images/item1.png";
@@ -45,36 +46,36 @@ const Collection = ({
   recommended,
 }) => {
   const allItems = items.length > 0 ? items : [
-    { src: item1, name: "Shin Noodles", price: "$12.50", category: "asian", recommended: true },
-    { src: item2, name: "Mama la Beef Pho Broth Concentrate", price: "$8.50", category: "hispanic", recommended: true },
-    { src: item3, name: "Do Ghazal Pure Ceylon Tea", price: "$5.00", category: "asian" },
-    { src: item4, name: "Halva Pistachio Cortas", price: "$7.20", category: "hispanic" },
-    { src: item5, name: "Priya Wheat Rawa Banku Mix Flour", price: "$3.49", category: "african", recommended: true, discount: true },
-    { src: item6, name: "Shin Light Noodles", price: "$11.00", category: "asian" },
-    { src: item7, name: "Sweet and Sour Tamarind", price: "$4.99", category: "asian" },
-    { src: item8, name: "Chakki Atta Whole Wheat Flour", price: "$6.25", category: "asian", discount: true },
-    { src: item9, name: "Ziyad Brothers Ziyad Halva", price: "$9.80", category: "african" },
-    { src: item10, name: "Haldiram's Karachi Halwa", price: "$10.25", category: "african" },
-    { src: item11, name: "Daawat - Extra Long Basmati Rice", price: "$15.99", category: "african", recommended: true },
-    { src: item12, name: "Goya Adobo Seasoning", price: "$10.70", category: "hispanic" },
-    { src: item13, name: "Costeña Chipotle Peppers in Adobo Sauce", price: "$6.99", category: "hispanic" },
-    { src: item14, name: "Maseca Instant Corn Masa Flour", price: "$4.49", category: "hispanic" },
-    { src: item15, name: "Tajin Clásico Seasoning", price: "$5.95", category: "hispanic" },
-    { src: item16, name: "Goya Black Beans", price: "$3.99", category: "hispanic" },
-    { src: item17, name: "Herdez Salsa Verde", price: "$4.99", category: "hispanic", recommended: true },
-    { src: item18, name: "Guava Paste", price: "$5.80", category: "hispanic" },
-    { src: item19, name: "Nopalitos (Cactus)", price: "$6.99", category: "hispanic" },
-    { src: item20, name: "Dulce de Leche", price: "$2.99", category: "hispanic", discount: true },
-    { src: item21, name: "ChocoMilk Chocolate Drink Mix", price: "$3.49", category: "hispanic", discount: true },
-    { src: item22, name: "Dried Chili Peppers", price: "$6.99", category: "hispanic" },
-    { src: item23, name: "El Milagro Corn Tortillas", price: "$5.30", category: "hispanic", discount: true },
-    { src: item24, name: "Plaintain Fufu Flour 24oz.", price: "$12.99", category: "african" },
-    { src: item25, name: "Egusi Whole Melon Seeds", price: "$7.49", category: "african" },
-    { src: item26, name: "Ola Ola Pounded Yam", price: "$6.99", category: "african" },
-    { src: item27, name: "Maggi Seasoning Cubes", price: "$3.30", category: "african", discount: true },
-    { src: item28, name: "Underwood Siracha Sauce", price: "$16.50", category: "asian", recommended: true },
-    { src: item29, name: "Kikkoman Soy Sauce, Tamari", price: "$14.49", category: "asian", recommended: true },
-    { src: item30, name: "Fresh Spring Rice Paper Wrappers", price: "$2.99", category: "asian", discount: true },
+    { id: 1, src: item1, name: "Shin Noodles", price: "$12.50", category: "asian", recommended: true },
+    { id: 2, src: item2, name: "Mama la Beef Pho Broth Concentrate", price: "$8.50", category: "hispanic", recommended: true },
+    { id: 3, src: item3, name: "Do Ghazal Pure Ceylon Tea", price: "$5.00", category: "asian" },
+    { id: 4, src: item4, name: "Halva Pistachio Cortas", price: "$7.20", category: "hispanic" },
+    { id: 5, src: item5, name: "Priya Wheat Rawa Banku Mix Flour", price: "$3.49", category: "african", recommended: true, discount: true },
+    { id: 6, src: item6, name: "Shin Light Noodles", price: "$11.00", category: "asian" },
+    { id: 7, src: item7, name: "Sweet and Sour Tamarind", price: "$4.99", category: "asian" },
+    { id: 8, src: item8, name: "Chakki Atta Whole Wheat Flour", price: "$6.25", category: "asian", discount: true },
+    { id: 9, src: item9, name: "Ziyad Brothers Ziyad Halva", price: "$9.80", category: "african" },
+    { id: 10, src: item10, name: "Haldiram's Karachi Halwa", price: "$10.25", category: "african" },
+    { id: 11, src: item11, name: "Daawat - Extra Long Basmati Rice", price: "$15.99", category: "african", recommended: true },
+    { id: 12, src: item12, name: "Goya Adobo Seasoning", price: "$10.70", category: "hispanic" },
+    { id: 13, src: item13, name: "Costeña Chipotle Peppers in Adobo Sauce", price: "$6.99", category: "hispanic" },
+    { id: 14, src: item14, name: "Maseca Instant Corn Masa Flour", price: "$4.49", category: "hispanic" },
+    { id: 15, src: item15, name: "Tajin Clásico Seasoning", price: "$5.95", category: "hispanic" },
+    { id: 16, src: item16, name: "Goya Black Beans", price: "$3.99", category: "hispanic" },
+    { id: 17, src: item17, name: "Herdez Salsa Verde", price: "$4.99", category: "hispanic", recommended: true },
+    { id: 18, src: item18, name: "Guava Paste", price: "$5.80", category: "hispanic" },
+    { id: 19, src: item19, name: "Nopalitos (Cactus)", price: "$6.99", category: "hispanic" },
+    { id: 20, src: item20, name: "Dulce de Leche", price: "$2.99", category: "hispanic", discount: true },
+    { id: 21, src: item21, name: "ChocoMilk Chocolate Drink Mix", price: "$3.49", category: "hispanic", discount: true },
+    { id: 22, src: item22, name: "Dried Chili Peppers", price: "$6.99", category: "hispanic" },
+    { id: 23, src: item23, name: "El Milagro Corn Tortillas", price: "$5.30", category: "hispanic", discount: true },
+    { id: 24, src: item24, name: "Plaintain Fufu Flour 24oz.", price: "$12.99", category: "african" },
+    { id: 25, src: item25, name: "Egusi Whole Melon Seeds", price: "$7.49", category: "african" },
+    { id: 26, src: item26, name: "Ola Ola Pounded Yam", price: "$6.99", category: "african" },
+    { id: 27, src: item27, name: "Maggi Seasoning Cubes", price: "$3.30", category: "african", discount: true },
+    { id: 28, src: item28, name: "Underwood Siracha Sauce", price: "$16.50", category: "asian", recommended: true },
+    { id: 29, src: item29, name: "Kikkoman Soy Sauce, Tamari", price: "$14.49", category: "asian", recommended: true },
+    { id: 30, src: item30, name: "Fresh Spring Rice Paper Wrappers", price: "$2.99", category: "asian", discount: true },
   ];
 
   const shuffleArray = (array) => {
@@ -85,7 +86,6 @@ const Collection = ({
     return array;
   };
 
-  // Apply filtering logic
   const filteredItems = allItems.filter((item) => {
     if (category && item.category !== category) return false;
     if (recommended && !item.recommended) return false;
@@ -124,25 +124,24 @@ const Collection = ({
     <div className="search-Collection" style={customStyles}>
       {title && <h1 className="search-header">{title}</h1>}
       <div className="search-arrowContainer">
-        {/* Render left arrow conditionally */}
         {showArrows && (
           <button className="search-arrow left" onClick={shiftLeft}>
             &#10094;
           </button>
         )}
-        {/* Items list is always displayed */}
         <div className="search-collectionCard">
-          {displayedItems.map((item, index) => (
-            <div className="search-collectionItem" key={index}>
-              <div className="search-collectionImg">
-                <img src={item.src} alt={item.name} />
-              </div>
-              <p className="search-itemName">{item.name}</p>
-              <p className="search-itemPrice">{item.price}</p>
+          {displayedItems.map((item) => (
+            <div className="search-collectionItem" key={item.id}>
+              <Link to={`/product/${item.id}`} className="search-itemLink">
+                <div className="search-collectionImg">
+                  <img src={item.src} alt={item.name} />
+                </div>
+                <p className="search-itemName">{item.name}</p>
+                <p className="search-itemPrice">{item.price}</p>
+              </Link>
             </div>
           ))}
         </div>
-        {/* Render right arrow conditionally */}
         {showArrows && (
           <button className="search-arrow right" onClick={shiftRight}>
             &#10095;
