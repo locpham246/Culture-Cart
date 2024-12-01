@@ -1,12 +1,15 @@
-import Items from "../components/ItemsList/ItemsList";
 import SmallHeader from "../components/SmallHeader/SmallHeader";
 import Menu from "../components/Menu/Menu";
+import Lines from "../components/ScreenLines/Lines";
+import ItemDetails from "../components/ItemDetails/ItemDetails";
 
-export default function Home() {
+export default function Product() {
     return (
-      <div className="Home">
+      <div className="Product">
           <SmallHeader />
           <Menu />
+          <Lines />
+          <ItemDetails />
       </div>
     );
   }

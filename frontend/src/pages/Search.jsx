@@ -20,14 +20,14 @@ export default function Search() {
               itemsPerPage={7}
               gridColumns={7}
               title="Recommended Items"
-              showArrows={true}
               customStyles={SearchStyles}
+              recommended
             />
           <SearchItems
               itemsPerPage={7}
               gridColumns={7}
               title="Discount Items"
-              showArrows={true}
+              discount
           />
           <SearchItems
               itemsPerPage={7}
