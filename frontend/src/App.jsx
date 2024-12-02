@@ -6,6 +6,7 @@ import ProfilePage from "./pages/Profile";
 import SearchPage from "./pages/Search";
 import CartPage from "./pages/Cart";
 import ProductPage from "./pages/Product";
+import DeliveryOrderPage from "./pages/DeliveryOrder";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "./store/userSlice";  // import setUser từ Redux
@@ -33,7 +34,7 @@ function App() {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/product/*" element={<ProductPage />} />
-          {/* <Route path="/delivery_order" element={<OrderPage />} /> */}
+          <Route path="/delivery_order" element={<DeliveryOrderPage />} /> 
           {/* <Route path="/driver_deliveries" element={<DriverDeliveriesPage />} /> */}
           {/* <Route path="/driver_order" element={<DriverOrderPage />} /> */}
         </Routes>
