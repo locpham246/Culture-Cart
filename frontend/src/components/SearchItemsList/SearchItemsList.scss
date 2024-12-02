@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+@mixin laptop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+.search-Collection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 220px;
+  padding-right: 40px;
+  padding-top: 25px;
+
+  gap: 20px;
+
+  h1 {
+    text-align: center;
+    font-size: 1.7rem;
+    color: #333;
+  }
+
+  .search-header {
+    margin-bottom: 10px;
+  }
+
+  .search-arrowContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    .search-arrow {
+      font-size: 1.5rem;
+      background-color: #fff;
+      border: 2px solid #4D7E29;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #0A3500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, background-color 0.2s;
+      padding-left: 15px;
+      padding-right: 15px;
+
+      &:hover {
+        transform: scale(1.1);
+        background-color: #f4f4f4;
+      }
+    }
+  }
+
+  .search-collectionCard {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+    gap: 10px; 
+    
+    .search-collectionItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      height: 100%;
+
+      .search-itemLink {
+        text-decoration: none; 
+        color: inherit;      
+        
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .search-collectionImg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        height: 100px;
+        border-radius: 8px;
+        overflow: hidden;
+  
+
+        img {
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .search-itemName {
+        margin-top: 10px;
+        font-weight: 500;
+        color: #0A3500;
+      }
+
+      .search-itemPrice {
+        color: #4D7E29;
+      }
+    }
+  }
+}
