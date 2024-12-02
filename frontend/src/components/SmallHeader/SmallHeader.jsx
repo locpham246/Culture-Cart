@@ -1,5 +1,4 @@
 import logoImage from "../../assets/images/Logo.png"; 
-import cartImage from "../../assets/images/Cart.png";
 import React from "react";
 import "./SmallHeader.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,6 +6,7 @@ import {
   faSearch,
   faBell,
   faUserCircle,
+  faShoppingCart
 } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
@@ -30,7 +30,7 @@ const Header = () => {
         {/* Cart Icon */}
         <div className="cart-button">
           <a href="/cart">
-            <img src={cartImage} alt="Cart" />
+            <FontAwesomeIcon className="cart-icon" icon={faShoppingCart} />
           </a>
         </div>
 

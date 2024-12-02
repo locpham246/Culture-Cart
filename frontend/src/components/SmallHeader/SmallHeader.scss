@@ -59,16 +59,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    
-      margin-top: 8px;
-      margin-right: 10px; 
-    
-      img {
-        width: 32px;
-        height: auto;
+      padding: 8px;
+      cursor: pointer;
+
+      svg {
+        font-size: 32px; /* Match the size of the other icons */
+        color: #074522; /* Match the green color of the other icons */
+        transition: color 0.3s; /* Add a smooth transition for hover effects */
+      }
+
+      &:hover svg {
+        color: #056837; /* Slightly darker green on hover */
       }
     }
-    
 
     .notification-button,
     .profile-button {
@@ -83,6 +86,11 @@
       svg {
         font-size: 32px;
         color: #074522;
+        transition: color 0.3s;
+      }
+
+      &:hover svg {
+        color: #056837;
       }
     }
   }
