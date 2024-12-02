@@ -1,0 +1,37 @@
+.searchDropdown {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    z-index: 10;
+    max-height: 300px;
+    overflow-y: auto;
+  
+    .dropdownItem {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+  
+      &:hover {
+        background-color: #f9f9f9;
+      }
+  
+      .itemImage {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-right: 10px;
+        border-radius: 4px;
+      }
+  
+      .itemName {
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+      }
+    }
+  }
+  
