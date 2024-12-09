@@ -6,9 +6,9 @@
     text-align: center;
   
     .center-logo {
-      position: absolute; /* Allow positioning relative to the viewport */
-      top: 15px; /* Distance from the top */
-      left: 670px; /* Distance from the right */
+      position: absolute; 
+      top: 15px; 
+      left: 670px; 
     }
 
     h4 {
@@ -43,18 +43,18 @@
   
     .profile-options {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); // Two columns
-      column-gap: 200px; // Adjust spacing between items
-      row-gap: 20px; // Adjust spacing between items
+      grid-template-columns: repeat(2, 1fr); 
+      column-gap: 200px; 
+      row-gap: 20px; 
       justify-items: start;
   
       .profile-option {
         display: flex;
-        align-items: center; // Align text and icons on the same vertical line
-        gap: 10px; // Space between the icon and the text
+        align-items: center; 
+        gap: 10px; 
   
         svg {
-          font-size: 3rem; // Adjust icon size
+          font-size: 3rem; 
           color: #074522;
           margin-bottom: 5px;
         }

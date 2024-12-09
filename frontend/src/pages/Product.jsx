@@ -1,22 +1,3 @@
-// import { useSelector } from 'react-redux';
-// import SmallHeader from "../components/SmallHeader/SmallHeader";
-// import Menu from "../components/Menu/Menu";
-// import Lines from "../components/ScreenLines/Lines";
-// import ItemDetails from "../components/ItemDetails/ItemDetails";
-
-// export default function Product() {
-//   const selectedProduct = useSelector((state) => state.product.selectedProduct); 
-
-//   return (
-//     <div className="Product">
-//         <SmallHeader />
-//         <Menu />
-//         <Lines />
-//         <ItemDetails />
-//     </div>
-//   );
-// }
-
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';

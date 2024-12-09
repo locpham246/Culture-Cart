@@ -1,6 +1,5 @@
 const Lines = () => {
 
-  // Lines for the screen
   const lines = [
   { top: "10%" },       
   { top: "12" },     
@@ -11,7 +10,6 @@ const Lines = () => {
     <div className="lines">
 
         {lines.map((style, index) => (
-        // Lines for the screen
         <div
             key={index}
             className="line"

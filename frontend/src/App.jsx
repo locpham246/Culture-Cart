@@ -35,8 +35,6 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/delivery_order" element={<DeliveryOrderPage />} /> 
-          {/* <Route path="/driver_deliveries" element={<DriverDeliveriesPage />} /> */}
-          {/* <Route path="/driver_order" element={<DriverOrderPage />} /> */}
         </Routes>
       </Router>
     </div>
@@ -44,4 +42,3 @@ function App() {
 }
 
 export default App;
-

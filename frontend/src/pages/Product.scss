@@ -1,0 +1,33 @@
+.Product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .Product img {
+    width: 50%; 
+    height: auto; 
+    max-width: 400px; 
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .Product img {
+      width: 80%; 
+      max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .Product img {
+      width: 100%; 
+      max-width: 100%;
+    }
+  }
+  
