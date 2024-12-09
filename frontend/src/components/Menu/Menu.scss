@@ -22,17 +22,17 @@ $overlay-bg-color: rgba(0, 0, 0, 0.2);
     align-items: center;
     justify-content: center;
     padding: 8px;
-    background-color: transparent; // Remove background from button
+    background-color: transparent; 
     border: none;
 
     svg {
       font-size: 32px;
-      color: $menu-button-color; // Default dark green color
+      color: $menu-button-color; 
     }
 
     &.open {
       svg {
-        color: $menu-button-color-open; // Change icon color to white when menu is open
+        color: $menu-button-color-open; 
       }
     }
   }
@@ -43,7 +43,7 @@ $overlay-bg-color: rgba(0, 0, 0, 0.2);
     left: -$menu-width;
     width: $menu-width;
     height: 100%;
-    background-color: $menu-bg-color; // Default dark green color
+    background-color: $menu-bg-color; 
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     transition: left 0.3s ease, background-color 0.3s ease;
     z-index: 1000;
@@ -54,7 +54,7 @@ $overlay-bg-color: rgba(0, 0, 0, 0.2);
 
     .menu-links {
       list-style: none;
-      padding: 80px 50px; // Lower the text to avoid overlap with the menu button
+      padding: 80px 50px; 
       margin: 0;
 
       li {

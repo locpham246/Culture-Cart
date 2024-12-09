@@ -5,14 +5,14 @@ import { faUserCircle, faWallet, faHistory, faTrophy, faHeadset, faHeart } from 
 import logoImage from "../../assets/images/Logo.png";
 
 const ProfileInfo = () => {
-  const [profileImage, setProfileImage] = useState("https://via.placeholder.com/150"); // Default profile image URL
+  const [profileImage, setProfileImage] = useState("https://via.placeholder.com/150");
 
   const handleImageUpload = (event) => {
-    const file = event.target.files[0]; // Get the first selected file
+    const file = event.target.files[0]; 
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setProfileImage(reader.result); // Set the uploaded image as the profile picture
+        setProfileImage(reader.result); 
       };
       reader.readAsDataURL(file); // Convert file to a data URL
     }
@@ -31,7 +31,7 @@ const ProfileInfo = () => {
         <label htmlFor="file-upload" className="profile-picture-wrapper">
           <img
             className="profile-picture"
-            src={profileImage} // Use the uploaded image URL or default
+            src={profileImage} 
             alt="Profile"
           />
         </label>
@@ -41,9 +41,9 @@ const ProfileInfo = () => {
         <input
           type="file"
           id="file-upload"
-          accept="image/*" // Only allow image files
-          onChange={handleImageUpload} // Handle file change
-          style={{ display: "none" }} // Hide the input field
+          accept="image/*" 
+          onChange={handleImageUpload} 
+          style={{ display: "none" }} 
         />
       </div>
       <div className="profile-options">
