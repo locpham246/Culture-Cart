@@ -1,30 +1,29 @@
-const Lines = () => {
+import React from "react";
 
-  // Lines for the screen
+
+const Lines = () => {
   const lines = [
-  { top: "10%" },       
-  { top: "12" },     
-  { top: "95%" },    
-];
+    { top: "10%" },       
+    { top: "13%" },     
+    { top: "120%" },    
+  ];
 
   return (
     <div className="lines">
-
-        {lines.map((style, index) => (
-        // Lines for the screen
+      {lines.map((style, index) => (
         <div
-            key={index}
-            className="line"
-            style={{
-              ...style,
-              position: "absolute", 
-              width: "100%",
-              left: 0,
-              height: "2px",
-              backgroundColor: "#074522",
-            }}
-        ></div>
-        ))}
+          key={index}
+          className="line"
+          style={{
+            ...style,
+            position: "absolute",
+            width: "100%",
+            left: 0,
+            height: "2px",
+            backgroundColor: "#074522",
+          }}
+        />
+      ))}
     </div>
   );
 };

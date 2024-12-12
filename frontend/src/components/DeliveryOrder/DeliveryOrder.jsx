@@ -57,7 +57,7 @@ const DeliveryPage = () => {
             onClick={() => setDeliveryOption('Standard')}
           >
             <div className="option-icon">
-              <FontAwesomeIcon icon={faTruck} /> {/* Standard delivery icon */}
+              <FontAwesomeIcon icon={faTruck} /> 
             </div>
             <div>
               <p className="option-title">Standard</p>
