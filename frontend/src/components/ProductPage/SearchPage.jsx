@@ -1,30 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import ItemDetails from "../components/ItemDetails/ItemDetails"; 
+import React, { useState } from 'react';
 
-const ProductPage = () => {
-  const { productId } = useParams(); 
-  const [product, setProduct] = useState(null);
+const SearchPage = ({ items }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredItems, setFilteredItems] = useState([]);
+  
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+    
+    if (e.target.value) {
+      const results = items.filter(item => 
+        item.name.toLowerCase().includes(e.target.value.toLowerCase())
+      );
+      setFilteredItems(results);
+    } else {
+      setFilteredItems([]);
+    }
+  };
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const response = await fetch(`/api/products/${productId}`);
-      const data = await response.json();
-      setProduct(data);  
-    };
-
-    fetchProduct();
-  }, [productId]);
-
-  if (!product) {
-    return <p>Loading...</p>;
-  }
+  const handleSelectItem = (item) => {
+    console.log(`Chọn item: ${item.name}`);
+  };
 
   return (
-    <div className="product-page">
-      <ItemDetails item={product} />
+    <div>
+      <input 
+        type="text" 
+        placeholder="Tìm kiếm item..." 
+        value={searchTerm} 
+        onChange={handleSearch}
+      />
+      
+      {filteredItems.length > 0 && (
+        <div className="dropdown">
+          {filteredItems.map((item) => (
+            <div 
+              key={item.id} 
+              className="dropdown-item" 
+              onClick={() => handleSelectItem(item)}
+            >
+              {item.name}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
-export default ProductPage;
+export default SearchPage;

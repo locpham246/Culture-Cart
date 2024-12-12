@@ -63,13 +63,13 @@
       cursor: pointer;
 
       svg {
-        font-size: 32px; /* Match the size of the other icons */
-        color: #074522; /* Match the green color of the other icons */
-        transition: color 0.3s; /* Add a smooth transition for hover effects */
+        font-size: 32px; 
+        color: #074522; 
+        transition: color 0.3s; 
       }
 
       &:hover svg {
-        color: #056837; /* Slightly darker green on hover */
+        color: #056837; 
       }
     }
 

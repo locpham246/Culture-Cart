@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../store/userSlice"; // Slice quản lý user
+import { logout } from "../../store/userSlice"; 
 import "./Header.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import logoImage from "../../assets/images/Logo.png";
@@ -8,7 +8,7 @@ import signinImage from "../../assets/images/SignIn.png";
 import signupImage from "../../assets/images/SignUp.png";
 
 const Header = () => {
-  const user = useSelector((state) => state.user.user); // Lấy thông tin user từ Redux store
+  const user = useSelector((state) => state.user.user); 
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -16,7 +16,7 @@ const Header = () => {
     alert("You have been logged out.");
   };
 
-  // Quản lý trạng thái ô tìm kiếm
+
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchChange = (event) => {
@@ -43,7 +43,7 @@ const Header = () => {
                   />
                 )}
                 <span className="welcomeMessage">
-                   Welcome, <strong>{user.name || "User"}</strong>!
+                   Welcome, Loc!
                 </span>
               </div>
               <button onClick={handleLogout} className="logoutButton">

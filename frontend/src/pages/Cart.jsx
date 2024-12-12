@@ -1,12 +1,14 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";  // Import useNavigate
 import Lines from "../components/ScreenLines/Lines";
 import SmallHeader from "../components/SmallHeader/SmallHeader";
 import Menu from "../components/Menu/Menu";
-import React, { useState } from "react";
 import "./Cart.scss";
 import item1 from "../assets/images/item1.png";
 import item11 from "../assets/images/item11.png";
 
 export default function Cart() {
+    const navigate = useNavigate();  // Khai báo navigate
     const [Items, setItems] = useState([
         { id: 1, name: "Shin Noodles", price: 12.99, quantity: 1, category: "Snacks", image: item1 },
         { id: 2, name: "Priya Wheat Rawa Banku Mix Flour", price: 3.49, quantity: 2, category: "Grains", image: item11 },
@@ -28,6 +30,11 @@ export default function Cart() {
 
     const removeItem = id => {
         setItems(prevItems => prevItems.filter(item => item.id !== id));
+    };
+
+    const handlePlaceOrder = () => {
+       
+        navigate("/delivery_order");  
     };
 
     return (
@@ -89,7 +96,7 @@ export default function Cart() {
                             <p>${calculateTotal()}</p>
                         </div>
                     </div>
-                    <button className="checkout-button">Place Order Now</button>
+                    <button className="checkout-button" onClick={handlePlaceOrder}>Place Order Now</button>
                 </div>
             </div>
         </div>

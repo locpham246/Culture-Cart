@@ -29,9 +29,9 @@
         .cart-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding: 1rem;
+            align-items: center; 
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
             border-bottom: 1px solid #ddd;
 
             .item-image {
@@ -61,6 +61,7 @@
                     font-size: 1.2rem;
                     font-weight: bold;
                 }
+
                 .item-category {
                     font-size: 0.9rem;
                     color: #888;
@@ -71,6 +72,9 @@
                 display: flex;
                 align-items: center;
                 gap: 1rem;
+                transform: translateY(-100px);
+                padding: 3%;
+                
 
                 .item-price {
                     font-size: 1.2rem;
@@ -89,6 +93,7 @@
                         border: none;
                         border-radius: 4px;
                         cursor: pointer;
+                        margin-top: 5px;
 
                         &:disabled {
                             background: #ccc;
