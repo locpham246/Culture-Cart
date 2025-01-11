@@ -1,0 +1,471 @@
+[
+  {
+    "id": 1,
+    "name": "Shin Noodles",
+    "price": 12.5,
+    "companyName": "Li's Asian Market",
+    "weights": [2, 4, 6],
+    "description": "Popular Korean instant noodles",
+    "images": ["https://live.staticflickr.com/65535/54192756136_98b9efc4a0_b.jpg"]
+  },
+  {
+    "id": 2,
+    "name": "Mama la Beef Pho Broth Concentrate",
+    "price": 8.5,
+    "companyName": "HongKong Seafood Market",
+    "weights": [1, 5, 3, 5],
+    "description": "Concentrate for making delicious pho",
+    "images": ["https://live.staticflickr.com/65535/54193022634_d32c4e4713_b.jpg"]
+  },
+  {
+    "id": 3,
+    "name": "Do Ghazal Pure Ceylon Tea",
+    "price": 5.0,
+    "companyName": "Hispanic Market",
+    "weights": [3, 5, 7],
+    "description": "High-quality Ceylon tea leaves",
+    "images": ["https://live.staticflickr.com/65535/54193198335_03fd9baf92_b.jpg"]
+  },
+  {
+    "id": 4,
+    "name": "Halva Pistachio Cortas",
+    "price": 7.2,
+    "companyName": "Middle East Market",
+    "weights": [2, 4, 6, 8],
+    "description": "Delicious pistachio halva",
+    "images": ["https://live.staticflickr.com/65535/54192756081_d559739130_o.png"]
+  },
+  {
+    "id": 5,
+    "name": "Priya Wheat Rawa Banku Mix Flour",
+    "price": 3.49,
+    "companyName": "African Market",
+    "weights": [1, 3, 5],
+    "description": "Perfect for African dishes",
+    "images": ["https://live.staticflickr.com/65535/54193198270_80e6bb3081_o.png"]
+  },
+  {
+    "id": 6,
+    "name": "Shin Light Noodles",
+    "price": 11.0,
+    "companyName": "HongKong Seafood Market",
+    "weights": [3, 5, 7],
+    "description": "A lighter version of Shin noodles",
+    "images": ["https://live.staticflickr.com/65535/54193198250_6efb3567f8_o.png"]
+  },
+  {
+    "id": 7,
+    "name": "Sweet and Sour Tamarind",
+    "price": 4.99,
+    "companyName": "Hispanic Market",
+    "weights": [2, 4, 6, 8],
+    "description": "A versatile tamarind product",
+    "images": ["https://live.staticflickr.com/65535/54191856002_d89c44e0dc_b.jpg"]
+  },
+  {
+    "id": 8,
+    "name": "Chakki Atta Whole Wheat Flour",
+    "price": 6.25,
+    "companyName": "African Market",
+    "weights": [1, 5, 3, 5],
+    "description": "Nutritious whole wheat flour",
+    "images": ["https://live.staticflickr.com/65535/54193022494_c35f495098_o.png"]
+  },
+  {
+    "id": 9,
+    "name": "Ziyad Brothers Ziyad Halva",
+    "price": 9.8,
+    "companyName": "Middle East Market",
+    "weights": [3, 5, 7],
+    "description": "A delightful Middle Eastern dessert",
+    "images": ["https://live.staticflickr.com/65535/54191855962_4049415090_b.jpg"]
+  },
+  {
+    "id": 10,
+    "name": "Haldiram's Karachi Halwa",
+    "price": 10.25,
+    "companyName": "Middle East Market",
+    "weights": [2, 4, 6],
+    "description": "Traditional Indian sweet treat",
+    "images": ["https://live.staticflickr.com/65535/54193022504_fe0a9ac097_o.png"]
+  },
+  {
+    "id": 11,
+    "name": "Daawat - Extra Long Basmati Rice",
+    "price": 15.99,
+    "companyName": "Middle East Market",
+    "weights": [1, 5, 3, 5],
+    "description": "Premium quality basmati rice",
+    "images": ["https://live.staticflickr.com/65535/54193022489_21e92c4597_o.png"]
+  },
+  {
+    "id": 12,
+    "name": "Goya Adobo Seasoning",
+    "price": 10.7,
+    "companyName": "Hispanic Market",
+    "weights": [2, 4, 6, 8],
+    "description": "All-purpose seasoning for every dish",
+    "images": ["https://live.staticflickr.com/65535/54193198195_f9b8a51e10_o.png"]
+  },
+  {
+    "id": 13,
+    "name": "Costeña Chipotle Peppers in Adobo Sauce",
+    "price": 6.99,
+    "companyName": "Hispanic Market",
+    "weights": [3, 5, 7],
+    "description": "Spicy chipotle peppers in a rich sauce",
+    "images": ["https://live.staticflickr.com/65535/54193198200_b59519183d_o.png"]
+  },
+  {
+    "id": 14,
+    "name": "Maseca Instant Corn Masa Flour",
+    "price": 4.49,
+    "companyName": "Hispanic Market",
+    "weights": [1, 3, 5],
+    "description": "Essential for authentic tortillas",
+    "images": ["https://live.staticflickr.com/65535/54191855937_85f7bf94a1_o.png"]
+  },
+  {
+    "id": 15,
+    "name": "Tajin Clásico Seasoning",
+    "price": 5.95,
+    "companyName": "Hispanic Market",
+    "weights": [2, 4, 6],
+    "description": "Tangy chili lime seasoning",
+    "images": ["https://live.staticflickr.com/65535/54193022459_9e3893042f_o.png"]
+  },
+  {
+    "id": 16,
+    "name": "Goya Black Beans",
+    "price": 3.99,
+    "companyName": "Hispanic Market",
+    "weights": [2, 4, 6, 8],
+    "description": "Classic black beans for every meal",
+    "images": ["https://live.staticflickr.com/65535/54191855927_c1d4eefccc_o.png"]
+  },
+  {
+    "id": 17,
+    "name": "Herdez Salsa Verde",
+    "price": 4.99,
+    "companyName": "Hispanic Market",
+    "weights": [1, 3, 5],
+    "description": "Fresh and tangy green salsa",
+    "images": ["https://live.staticflickr.com/65535/54193022444_44e2efc303_o.png"]
+  },
+  {
+    "id": 18,
+    "name": "Guava Paste",
+    "price": 5.8,
+    "companyName": "Hispanic Market",
+    "weights": [3, 5, 7],
+    "description": "Sweet and flavorful guava paste",
+    "images": ["https://live.staticflickr.com/65535/54193002083_095c91d204_o.png"]
+  },
+  {
+    "id": 19,
+    "name": "Nopalitos (Cactus)",
+    "price": 6.99,
+    "companyName": "Hispanic Market",
+    "weights": [2, 4, 6],
+    "description": "Prepared cactus for Mexican dishes",
+    "images": ["https://live.staticflickr.com/65535/54191855907_0d23ec3c78_o.png"]
+  },
+  {
+    "id": 20,
+    "name": "Dulce de Leche",
+    "price": 2.99,
+    "companyName": "Hispanic Market",
+    "weights": [1, 3, 5],
+    "description": "Creamy caramel spread",
+    "images": ["https://live.staticflickr.com/65535/54193022404_e374b4b8db_o.png"]
+  },
+  {
+    "id": 21,
+    "name": "ChocoMilk Chocolate Drink Mix",
+    "price": 3.49,
+    "companyName": "Hispanic Market",
+    "weights": [3, 5, 7],
+    "description": "Rich and creamy chocolate mix",
+    "images": ["https://live.staticflickr.com/65535/54191855977_80b95c6e42_o.png"]
+  },
+    {
+      "id": 1,
+      "name": "Shin Noodles",
+      "price": 12.5,
+      "companyName": "Li's Asian Market",
+      "weights": [2, 4, 6],
+      "description": "Popular Korean instant noodles",
+      "images": ["https://live.staticflickr.com/65535/54192756136_98b9efc4a0_b.jpg"]
+    },
+    {
+      "id": 2,
+      "name": "Mama la Beef Pho Broth Concentrate",
+      "price": 8.5,
+      "companyName": "HongKong Seafood Market",
+      "weights": [1, 5, 3, 5],
+      "description": "Concentrate for making delicious pho",
+      "images": ["https://live.staticflickr.com/65535/54193022634_d32c4e4713_b.jpg"]
+    },
+    {
+      "id": 3,
+      "name": "Do Ghazal Pure Ceylon Tea",
+      "price": 5.0,
+      "companyName": "Hispanic Market",
+      "weights": [3, 5, 7],
+      "description": "High-quality Ceylon tea leaves",
+      "images": ["https://live.staticflickr.com/65535/54193198335_03fd9baf92_b.jpg"]
+    },
+    {
+      "id": 4,
+      "name": "Halva Pistachio Cortas",
+      "price": 7.2,
+      "companyName": "Middle East Market",
+      "weights": [2, 4, 6, 8],
+      "description": "Delicious pistachio halva",
+      "images": ["https://live.staticflickr.com/65535/54192756081_d559739130_o.png"]
+    },
+    {
+      "id": 5,
+      "name": "Priya Wheat Rawa Banku Mix Flour",
+      "price": 3.49,
+      "companyName": "African Market",
+      "weights": [1, 3, 5],
+      "description": "Perfect for African dishes",
+      "images": ["https://live.staticflickr.com/65535/54193198270_80e6bb3081_o.png"]
+    },
+    {
+      "id": 6,
+      "name": "Shin Light Noodles",
+      "price": 11.0,
+      "companyName": "HongKong Seafood Market",
+      "weights": [3, 5, 7],
+      "description": "A lighter version of Shin noodles",
+      "images": ["https://live.staticflickr.com/65535/54193198250_6efb3567f8_o.png"]
+    },
+    {
+      "id": 7,
+      "name": "Sweet and Sour Tamarind",
+      "price": 4.99,
+      "companyName": "Hispanic Market",
+      "weights": [2, 4, 6, 8],
+      "description": "A versatile tamarind product",
+      "images": ["https://live.staticflickr.com/65535/54191856002_d89c44e0dc_b.jpg"]
+    },
+    {
+      "id": 8,
+      "name": "Chakki Atta Whole Wheat Flour",
+      "price": 6.25,
+      "companyName": "African Market",
+      "weights": [1, 5, 3, 5],
+      "description": "Nutritious whole wheat flour",
+      "images": ["https://live.staticflickr.com/65535/54193022494_c35f495098_o.png"]
+    },
+    {
+      "id": 9,
+      "name": "Ziyad Brothers Ziyad Halva",
+      "price": 9.8,
+      "companyName": "Middle East Market",
+      "weights": [3, 5, 7],
+      "description": "A delightful Middle Eastern dessert",
+      "images": ["https://live.staticflickr.com/65535/54191855962_4049415090_b.jpg"]
+    },
+    {
+      "id": 10,
+      "name": "Haldiram's Karachi Halwa",
+      "price": 10.25,
+      "companyName": "Middle East Market",
+      "weights": [2, 4, 6],
+      "description": "Traditional Indian sweet treat",
+      "images": ["https://live.staticflickr.com/65535/54193022504_fe0a9ac097_o.png"]
+    },
+    {
+      "id": 11,
+      "name": "Daawat - Extra Long Basmati Rice",
+      "price": 15.99,
+      "companyName": "Middle East Market",
+      "weights": [1, 5, 3, 5],
+      "description": "Premium quality basmati rice",
+      "images": ["https://live.staticflickr.com/65535/54193022489_21e92c4597_o.png"]
+    },
+    {
+      "id": 12,
+      "name": "Goya Adobo Seasoning",
+      "price": 10.7,
+      "companyName": "Hispanic Market",
+      "weights": [2, 4, 6, 8],
+      "description": "All-purpose seasoning for every dish",
+      "images": ["https://live.staticflickr.com/65535/54193198195_f9b8a51e10_o.png"]
+    },
+    {
+      "id": 13,
+      "name": "Costeña Chipotle Peppers in Adobo Sauce",
+      "price": 6.99,
+      "companyName": "Hispanic Market",
+      "weights": [3, 5, 7],
+      "description": "Spicy chipotle peppers in a rich sauce",
+      "images": ["https://live.staticflickr.com/65535/54193198200_b59519183d_o.png"]
+    },
+    {
+      "id": 14,
+      "name": "Maseca Instant Corn Masa Flour",
+      "price": 4.49,
+      "companyName": "Hispanic Market",
+      "weights": [1, 3, 5],
+      "description": "Essential for authentic tortillas",
+      "images": ["https://live.staticflickr.com/65535/54191855937_85f7bf94a1_o.png"]
+    },
+    {
+      "id": 15,
+      "name": "Tajin Clásico Seasoning",
+      "price": 5.95,
+      "companyName": "Hispanic Market",
+      "weights": [2, 4, 6],
+      "description": "Tangy chili lime seasoning",
+      "images": ["https://live.staticflickr.com/65535/54193022459_9e3893042f_o.png"]
+    },
+    {
+      "id": 16,
+      "name": "Goya Black Beans",
+      "price": 3.99,
+      "companyName": "Hispanic Market",
+      "weights": [2, 4, 6, 8],
+      "description": "Classic black beans for every meal",
+      "images": ["https://live.staticflickr.com/65535/54191855927_c1d4eefccc_o.png"]
+    },
+    {
+      "id": 17,
+      "name": "Herdez Salsa Verde",
+      "price": 4.99,
+      "companyName": "Hispanic Market",
+      "weights": [1, 3, 5],
+      "description": "Fresh and tangy green salsa",
+      "images": ["https://live.staticflickr.com/65535/54193022444_44e2efc303_o.png"]
+    },
+    {
+      "id": 18,
+      "name": "Guava Paste",
+      "price": 5.8,
+      "companyName": "Hispanic Market",
+      "weights": [3, 5, 7],
+      "description": "Sweet and flavorful guava paste",
+      "images": ["https://live.staticflickr.com/65535/54193002083_095c91d204_o.png"]
+    },
+    {
+      "id": 19,
+      "name": "Nopalitos (Cactus)",
+      "price": 6.99,
+      "companyName": "Hispanic Market",
+      "weights": [2, 4, 6],
+      "description": "Prepared cactus for Mexican dishes",
+      "images": ["https://live.staticflickr.com/65535/54191855907_0d23ec3c78_o.png"]
+    },
+    {
+      "id": 20,
+      "name": "Dulce de Leche",
+      "price": 2.99,
+      "companyName": "Hispanic Market",
+      "weights": [1, 3, 5],
+      "description": "Creamy caramel spread",
+      "images": ["https://live.staticflickr.com/65535/54193022404_e374b4b8db_o.png"]
+    },
+    {
+      "id": 21,
+      "name": "ChocoMilk Chocolate Drink Mix",
+      "price": 3.49,
+      "companyName": "Hispanic Market",
+      "weights": [3, 5, 7],
+      "description": "Rich and creamy chocolate mix",
+      "images": ["https://live.staticflickr.com/65535/54191855977_80b95c6e42_o.png"]
+    },
+      {
+        "id": 21,
+        "name": "ChocoMilk Chocolate Drink Mix",
+        "price": 3.49,
+        "companyName": "Hispanic Market",
+        "weights": [3, 5, 7],
+        "description": "Rich and creamy chocolate mix",
+        "images": ["https://live.staticflickr.com/65535/54191855872_acf35f54f1_o.png"]
+      },
+      {
+        "id": 22,
+        "name": "Dried Chili Peppers",
+        "price": 6.99,
+        "companyName": "Hispanic Market",
+        "weights": [1, 3, 5],
+        "description": "Perfect for adding spice to your dishes",
+        "images": ["https://live.staticflickr.com/65535/54191855877_5d1eecf855_o.png"]
+      },
+      {
+        "id": 23,
+        "name": "El Milagro Corn Tortillas",
+        "price": 5.30,
+        "companyName": "Hispanic Market",
+        "weights": [2, 4, 6],
+        "description": "Fresh corn tortillas for tacos and more",
+        "images": ["https://live.staticflickr.com/65535/54192755941_7989263941_o.png"]
+      },
+      {
+        "id": 24,
+        "name": "Plantain Fufu Flour",
+        "price": 12.99,
+        "companyName": "African Market",
+        "weights": [2, 4, 6, 8],
+        "description": "Essential flour for making traditional fufu",
+        "images": ["https://live.staticflickr.com/65535/54193022399_3d34775e88_o.png"]
+      },
+      {
+        "id": 25,
+        "name": "Egusi Whole Melon Seeds",
+        "price": 7.49,
+        "companyName": "African Market",
+        "weights": [1, 3, 5],
+        "description": "Key ingredient for African soups",
+        "images": ["https://live.staticflickr.com/65535/54191855852_fdb89ce21c_o.png"]
+      },
+      {
+        "id": 26,
+        "name": "Ola Ola Pounded Yam",
+        "price": 6.99,
+        "companyName": "African Market",
+        "weights": [3, 5, 7],
+        "description": "Classic yam flour for smooth pounded yam",
+        "images": ["https://live.staticflickr.com/65535/54193002053_7ec5a1769d_o.png"]
+      },
+      {
+        "id": 27,
+        "name": "Maggi Seasoning Cubes",
+        "price": 3.30,
+        "companyName": "African Market",
+        "weights": [2, 4, 6],
+        "description": "Universal seasoning cubes for every meal",
+        "images": ["https://live.staticflickr.com/65535/54193022374_c18e1f189e_o.png"]
+      },
+      {
+        "id": 28,
+        "name": "Underwood Sriracha Sauce",
+        "price": 16.50,
+        "companyName": "Asian Market",
+        "weights": [1, 3, 5],
+        "description": "Bold and spicy sriracha sauce",
+        "images": ["https://live.staticflickr.com/65535/54192755901_619a969444_o.png"]
+      },
+      {
+        "id": 29,
+        "name": "Kikkoman Soy Sauce, Tamari",
+        "price": 14.49,
+        "companyName": "Asian Market",
+        "weights": [2, 4, 6, 8],
+        "description": "Gluten-free tamari soy sauce",
+        "images": ["https://live.staticflickr.com/65535/54193022379_2fb0bea3ff_o.png"]
+      },
+      {
+        "id": 30,
+        "name": "Fresh Spring Rice Paper Wrappers",
+        "price": 2.99,
+        "companyName": "Asian Market",
+        "weights": [1, 3, 5],
+        "description": "Perfect for fresh spring rolls",
+        "images": ["https://live.staticflickr.com/65535/54192755911_cced88d5a6_o.png"]
+      }
+    ]
+  
