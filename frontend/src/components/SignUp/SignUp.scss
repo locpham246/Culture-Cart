@@ -50,6 +50,31 @@
         }
       }
     }
+.fullname-box{
+  margin-bottom: 20px;
+  text-align: left;
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+
+    &:focus {
+      outline: none;
+      border-color: #4D7E29;
+    }
+  }
+}
+    
 
     .password-box_signup {
       margin-bottom: 20px;

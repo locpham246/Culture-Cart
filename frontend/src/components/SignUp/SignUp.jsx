@@ -8,6 +8,7 @@ const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [fullname, setFullname] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const SignUpPage = () => {
     return emailRegex.test(email);
   };
 
-  const handleLogin = (e) => {
+  const handleSignup = (e) => { 
     e.preventDefault();
 
     if (!validateEmail(email)) {
@@ -26,24 +27,24 @@ const SignUpPage = () => {
     }
 
     if (password !== confirm) {
-      alert("Passwords do not match!");
+      alert("Passwords do not match!"); 
       return;
     }
 
     setLoading(true);
     axios
-      .post("http://localhost:3000/auth/signup", { email, password, confirm })
+      .post("https://localhost:3000/auth/signup", { name: fullname, email, password, confirm })
       .then((response) => {
-        if (response.data.status) {
-          navigate('/signin');
-          alert("Sign up successful!");
+        if (response.data.success) { 
+          alert(response.data.message); 
+          navigate(`/verify-otp/${response.data.userId}`);
         } else {
-          alert(response.data.message || "Something went wrong.");
+          alert(response.data.message || "Something went wrong."); 
         }
       })
       .catch((err) => {
         console.error(err);
-        alert(err.response?.data?.message || "An error occurred during sign up.");
+        alert(err.response?.data?.message || "An error occurred during sign up."); 
       })
       .finally(() => {
         setLoading(false);
@@ -60,7 +61,18 @@ const SignUpPage = () => {
       <div className="login-container">
         <h4 className="appname_login">Culture Cart</h4>
 
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSignup}>
+          <div className="fullname-box">
+            <label htmlFor="fullname"></label>
+            <input
+              type="text"
+              id="fullname"
+              value={fullname}
+              onChange={(e) => setFullname(e.target.value)}
+              placeholder="Enter Full Name" 
+              required
+            />
+          </div>
 
           <div className="email-box">
             <label htmlFor="email"></label>
@@ -69,7 +81,7 @@ const SignUpPage = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter Email"
+              placeholder="Enter Email" 
               required
             />
           </div>
@@ -81,7 +93,7 @@ const SignUpPage = () => {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter Password"
+              placeholder="Enter Password" 
               required
               minLength="6"
             />
@@ -94,16 +106,16 @@ const SignUpPage = () => {
               id="confirm-password"
               value={confirm}
               onChange={(e) => setConfirm(e.target.value)}
-              placeholder="Confirm Password"
+              placeholder="Confirm Password" 
               required
             />
           </div>
 
           <button type="submit" className="signup-button" disabled={loading}>
-            {loading ? "Signing up..." : "Create Account"}
+            {loading ? "Signing up..." : "Create Account"} 
           </button>
 
-          <p>Have an Account? <Link to="/signin">Sign In</Link></p>
+          <p>Have an Account? <Link to="/signin">Sign In</Link></p> 
         </form>
       </div>
     </div>

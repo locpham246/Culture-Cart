@@ -1,6 +1,6 @@
 import React, { useState } from "react"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faSearch, faUser, faHistory, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faSearch, faUser, faHistory, faBars, faStore } from "@fortawesome/free-solid-svg-icons";
 import "./Menu.scss";
 
 const Menu = () => {
@@ -12,8 +12,8 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <button 
-        className={`menu-button ${isOpen ? "open" : ""}`} 
+      <button
+        className={`menu-button ${isOpen ? "open" : ""}`}
         onClick={toggleMenu}
       >
         <FontAwesomeIcon icon={faBars} className="menu-icon" />
@@ -42,6 +42,12 @@ const Menu = () => {
             <a href="/history">
               <FontAwesomeIcon icon={faHistory} className="menu-icon" />
               History
+            </a>
+          </li>
+          <li>
+            <a href="/stores"> 
+              <FontAwesomeIcon icon={faStore} className="menu-icon" /> 
+              Stores
             </a>
           </li>
         </ul>

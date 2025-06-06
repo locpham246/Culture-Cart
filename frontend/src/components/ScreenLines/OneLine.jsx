@@ -18,6 +18,7 @@ const OneLine = () => {
               left: 0,
               height: "2px",
               backgroundColor: "#074522",
+              zIndex: 9998,
             }}
         ></div>
         ))}

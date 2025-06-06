@@ -12,10 +12,10 @@ $link-hover-color: #4D7E29;
     left: 0;
     width: $menu-width;
     height: 100vh;
-    background-color: $menu-bg-color; // Dark green color
+    background-color: $menu-bg-color; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; // Space between sections
+    justify-content: space-between; 
 
     .search-menu-links {
       list-style: none;
@@ -46,7 +46,7 @@ $link-hover-color: #4D7E29;
     }
 
     .search-spaced-section {
-      margin-top: auto; // Push this section to the bottom
+      margin-top: auto; 
       padding-bottom: 50px;
     }
   }

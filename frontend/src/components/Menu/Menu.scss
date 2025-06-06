@@ -1,7 +1,7 @@
 $menu-width: 250px;
-$menu-bg-color: #074522; // Dark green color for side menu
-$menu-button-color: #074522; // Dark green color for the menu button
-$menu-button-color-open: #ffffff; // White color when the menu is open
+$menu-bg-color: #074522; 
+$menu-button-color: #074522;
+$menu-button-color-open: #ffffff; 
 $link-color: #ecf0f1;
 $link-hover-color: #4D7E29;
 $overlay-bg-color: rgba(0, 0, 0, 0.2);
@@ -16,23 +16,23 @@ $overlay-bg-color: rgba(0, 0, 0, 0.2);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 10000;
     font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 8px;
-    background-color: transparent; // Remove background from button
+    background-color: transparent; 
     border: none;
 
     svg {
       font-size: 32px;
-      color: $menu-button-color; // Default dark green color
+      color: $menu-button-color; 
     }
 
     &.open {
       svg {
-        color: $menu-button-color-open; // Change icon color to white when menu is open
+        color: $menu-button-color-open; 
       }
     }
   }
@@ -43,10 +43,10 @@ $overlay-bg-color: rgba(0, 0, 0, 0.2);
     left: -$menu-width;
     width: $menu-width;
     height: 100%;
-    background-color: $menu-bg-color; // Default dark green color
+    background-color: $menu-bg-color; 
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     transition: left 0.3s ease, background-color 0.3s ease;
-    z-index: 1000;
+    z-index: 10001;
 
     &.open {
       left: 0;
@@ -54,7 +54,7 @@ $overlay-bg-color: rgba(0, 0, 0, 0.2);
 
     .menu-links {
       list-style: none;
-      padding: 80px 50px; // Lower the text to avoid overlap with the menu button
+      padding: 80px 50px; 
       margin: 0;
 
       li {
@@ -88,6 +88,6 @@ $overlay-bg-color: rgba(0, 0, 0, 0.2);
     width: 100%;
     height: 100%;
     background-color: $overlay-bg-color;
-    z-index: 999;
+    z-index: 10000;
   }
 }

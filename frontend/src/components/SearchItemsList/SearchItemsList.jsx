@@ -1,42 +1,50 @@
+
+
 import React, { useState, useEffect } from "react";
 import "./SearchItemsList.scss";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import axios from 'axios';
 
 const Collection = ({
-  items = [],
   itemsPerPage = 7,
   title = "Search Results",
   showArrows,
   customStyles = {},
   category,
-  discount,
-  recommended,
+  searchQuery 
 }) => {
-  const [fetchedItems, setFetchedItems] = useState([]);
+  const [fetchedProductSummaries, setFetchedProductSummaries] = useState([]);
   const [displayedItems, setDisplayedItems] = useState([]);
   const [remainingItems, setRemainingItems] = useState([]);
   const [historyStack, setHistoryStack] = useState([]);
   
   const dispatch = useDispatch();
 
- 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchProductSummaries = async () => {
       try {
-        const response = await fetch('http://localhost:3000/products');
-        const data = await response.json();
-        console.log('Fetched products:', data);
-        setFetchedItems(data);
+        const response = await axios.get('https://localhost:3000/api/store-products/search-summary', {
+          params: {
+            category: category,
+            search: searchQuery 
+          }
+        });
+        
+        if (response.data.success) {
+          console.log('Fetched product summaries:', response.data.productSummaries);
+          setFetchedProductSummaries(response.data.productSummaries);
+        } else {
+          console.error("Failed to fetch product summaries:", response.data.message);
+        }
       } catch (error) {
-        console.error("Failed to fetch products:", error);
+        console.error("Error fetching product summaries:", error);
       }
     };
 
-    fetchProducts();
-  }, []);
+    fetchProductSummaries();
+  }, [category, searchQuery]); 
 
-  // Shuffle array function
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -44,24 +52,16 @@ const Collection = ({
     }
     return array;
   };
-
-  // Filter and shuffle items
   useEffect(() => {
-    if (fetchedItems.length > 0) {
-      const filteredItems = fetchedItems.filter((item) => {
-        if (category && item.category !== category) return false;
-        if (recommended && !item.recommended) return false;
-        if (discount && !item.discount) return false;
-        return true;
-      });
-
-      const randomizedItems = shuffleArray(filteredItems);
+    if (fetchedProductSummaries.length > 0) {
+      const randomizedItems = shuffleArray(fetchedProductSummaries);
       setDisplayedItems(randomizedItems.slice(0, itemsPerPage));
       setRemainingItems(randomizedItems.slice(itemsPerPage));
+    } else {
+        setDisplayedItems([]); 
+        setRemainingItems([]);
     }
-  }, [fetchedItems, category, discount, recommended]);
-
-
+  }, [fetchedProductSummaries, itemsPerPage]);
   const shiftLeft = () => {
     if (historyStack.length === 0) return;
     const restoredItem = historyStack[historyStack.length - 1];
@@ -82,7 +82,6 @@ const Collection = ({
     setRemainingItems([...updatedRemaining, removedItem]);
     setHistoryStack((prev) => [...prev, removedItem]);
   };
-
   return (
     <div className="search-Collection" style={customStyles}>
       {title && <h1 className="search-header">{title}</h1>}
@@ -94,13 +93,15 @@ const Collection = ({
         )}
         <div className="search-collectionCard">
           {displayedItems.map((item) => (
-            <div className="search-collectionItem" key={item.id}>
-              <Link to={`/product/${item.id}`} className="search-itemLink">
+            <div className="search-collectionItem" key={item._id}>
+              <Link to={`/product-details/${item._id}`} className="search-itemLink"> 
                 <div className="search-collectionImg">
-                  <img src={item.src} alt={item.name} />
+                  <img src={item.images && item.images.length > 0 ? item.images[0] : 'placeholder.png'} alt={item.name} />
                 </div>
                 <p className="search-itemName">{item.name}</p>
-                <p className="search-itemPrice">{item.price}</p>
+                <p className="search-itemPrice">
+                  {item.minPrice.toFixed(2) === item.maxPrice.toFixed(2) ?`$${item.minPrice.toFixed(2)}` :`$${item.minPrice.toFixed(2)} - $${item.maxPrice.toFixed(2)}` }
+                  </p>
               </Link>
             </div>
           ))}

@@ -19,9 +19,9 @@ const Footer = () => {
             <p>Contact Us</p>
           </div>
           <div className="bottomContent">
-            <h4>FOR RESTAURANTS</h4>
+            <h4>FOR STORES</h4>
             <p>Patner with Us</p>
-            <p>Apps For you</p>
+            <p>Services</p>
             <h4>For Enterprises</h4>
           </div>
           <div className="bottomContent">

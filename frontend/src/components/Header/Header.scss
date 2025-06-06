@@ -48,37 +48,72 @@
       align-items: center;
       gap: 15px;
 
-      .userInfo {
-        font-size: 1.2rem;
-        font-weight: 500;
-        color: #0a3500;
-        display: flex;
-        align-items: center;
+      .welcome-dropdown-container {
+        position: relative;
+        display: inline-block;
+      }
 
-        .welcomeMessage {
-          display: inline-block;
-          background-color: #f0f8f5;
-          padding: 5px 10px;
-          border-radius: 8px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          font-size: 1.1rem;
+      .welcomeMessage {
+        display: inline-block;
+        background-color: white;
+        color: #0A3500;
+        padding: 6px 12px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        font-size: 1.05rem;
+        font-weight: 600;
+        user-select: none;
+        border: 1px solid #074522;
+        white-space: nowrap;
+        transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          background-color: #f0f0f0;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          cursor: pointer;
         }
       }
 
-      .userAvatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-right: 10px;
-        object-fit: cover;
-        border: 2px solid #0a3500;
+      .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        width: 100%;
+        background-color: white;
+        border: 1px solid #074522;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        z-index: 999;
+        padding: 8px 0;
+        display: flex;
+        flex-direction: column;
+
+        a {
+          color: #0A3500;
+          border-bottom: 1px solid #074522; 
+          padding: 10px 15px;
+          text-decoration: none;
+          font-size: 1.05rem;
+          font-weight: 500;
+          transition: background-color 0.2s ease, color 0.2s ease;
+
+          &:hover {
+            background-color: #e6ffe6;
+            color: #0A3500;
+          }
+          &:last-child {
+            border-bottom: none; 
+          }
+        }
       }
+
 
       .logoutButton {
         background-color: #0A3500;
         color: white;
         border: none;
         padding: 8px 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
         font-size: 1rem;
         font-weight: bold;
         border-radius: 8px;
