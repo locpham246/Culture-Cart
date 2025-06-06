@@ -1,7 +1,32 @@
+@use "sass:color";
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins';
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: vars.$background-page;
+}
+
+.App {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.stores-page-container {
+  padding-top: 90px;
+  flex-grow: 1; 
+  width: 100%;
+  max-width: 1400px; 
+  margin: 0 auto;
 }

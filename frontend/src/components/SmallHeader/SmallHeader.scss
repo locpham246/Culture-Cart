@@ -8,7 +8,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 9999;
 
   .search-logo {
     display: flex;
@@ -53,22 +53,36 @@
   .icon-group {
     display: flex;
     align-items: center;
-    gap: 20px; /* Space between icons */
+    gap: 20px; 
 
     .cart-button {
-      display: flex;
+      position: relative; 
+      display: flex; 
       align-items: center;
-      justify-content: center;
-      padding: 8px;
-      cursor: pointer;
-
-      svg {
+      .cart-icon {
         font-size: 32px; 
         color: #074522; 
         transition: color 0.3s; 
       }
 
-      &:hover svg {
+      .cart-count {
+        position: absolute;
+        top: -8px; 
+        right: -8px; 
+        background-color: rgb(153, 39, 75);
+        color: white;
+        border-radius: 50%;
+        padding: 4px 7px; 
+        font-size: 12px;
+        font-weight: bold;
+        min-width: 20px; 
+        text-align: center;
+        line-height: 1; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        z-index: 10;
+      }
+
+      &:hover .cart-icon {
         color: #056837; 
       }
     }

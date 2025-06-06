@@ -1,79 +1,81 @@
 .profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px;
+  text-align: center;
+  justify-content: flex-end; 
+  min-height: 80vh; 
+
+  .center-logo {
+    position: absolute;
+    top: 15px;
+    right: 50px;
+  }
+
+  h4 {
+    font-size: 2rem;
+    font-weight: 1000;
+    font-family: "Georgia";
+    color: #0A3500;
+    user-select: none;
+  }
+
+  .profile-header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 35px;
-    text-align: center;
-  
-    .center-logo {
-      position: absolute; /* Allow positioning relative to the viewport */
-      top: 15px; /* Distance from the top */
-      left: 670px; /* Distance from the right */
+    margin-bottom: 50px;
+    margin-top: auto; 
+    .profile-picture {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #4D7E29;
     }
 
-    h4 {
-      font-size: 2rem;
-      font-weight: 1000;
-      font-family: "Georgia";
-      color: #0A3500;
-      margin-bottom: 70px;
+    .profile-name {
+      margin-top: 20px;
+      font-size: 36px;
+      font-weight: bold;
+      user-select: none;
+      color: rgb(180, 180, 180);
     }
+  }
 
-    .profile-header {
+  .profile-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 200px;
+    row-gap: 20px;
+    justify-items: start;
+
+    .profile-option {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      margin-bottom: 50px;
-  
-      .profile-picture {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid #4D7E29;
+      gap: 10px;
+
+      svg {
+        font-size: 3rem;
+        color: #074522;
+        margin-bottom: 5px;
       }
-  
-      .profile-name {
-        margin-top: 20px;
-        font-size: 36px;
-        font-weight: bold;
-        color: rgb(180, 180, 180);
+
+      span {
+        font-size: 16px;
+        color: #074522;
       }
-    }
-  
-    .profile-options {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); // Two columns
-      column-gap: 200px; // Adjust spacing between items
-      row-gap: 20px; // Adjust spacing between items
-      justify-items: start;
-  
-      .profile-option {
-        display: flex;
-        align-items: center; // Align text and icons on the same vertical line
-        gap: 10px; // Space between the icon and the text
-  
+
+      &:hover {
         svg {
-          font-size: 3rem; // Adjust icon size
-          color: #074522;
-          margin-bottom: 5px;
+          color: #05351a;
         }
-  
+
         span {
-          font-size: 16px;
           color: #074522;
-        }
-  
-        &:hover {
-          svg {
-            color: #05351a;
-          }
-  
-          span {
-            color: #074522;
-          }
         }
       }
     }
   }
-  
+}

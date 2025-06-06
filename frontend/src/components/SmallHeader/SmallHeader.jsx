@@ -2,44 +2,38 @@ import logoImage from "../../assets/images/Logo.png";
 import React from "react";
 import "./SmallHeader.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSearch,
-  faBell,
-  faUserCircle,
-  faShoppingCart
-} from "@fortawesome/free-solid-svg-icons";
+import {faSearch, faBell,faUserCircle,faShoppingCart} from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from 'react-redux'; 
 
 const Header = () => {
+  const cartItems = useSelector(state => state.cart.items);
+  const totalItemsInCart = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <header className="app-header">
-      {/* Logo Icon */}
       <div className="search-logo">
         <a href="/">
           <img src={logoImage} alt="Logo" />
         </a>
       </div>
-
-      {/* Centered Search Bar */}
       <div className="search-bar">
         <FontAwesomeIcon icon={faSearch} />
         <input type="text" placeholder="Search" />
       </div>
-
-      {/* Icons Section */}
       <div className="icon-group">
-        {/* Cart Icon */}
         <div className="cart-button">
           <a href="/cart">
             <FontAwesomeIcon className="cart-icon" icon={faShoppingCart} />
+            {totalItemsInCart > 0 && (
+              <span className="cart-count">{totalItemsInCart}</span>
+            )}
           </a>
         </div>
 
-        {/* Notification Button */}
         <button className="notification-button">
           <FontAwesomeIcon icon={faBell} />
         </button>
 
-        {/* Profile Button */}
         <button className="profile-button">
           <FontAwesomeIcon icon={faUserCircle} />
         </button>

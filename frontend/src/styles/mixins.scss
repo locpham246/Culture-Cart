@@ -1,0 +1,27 @@
+@use '@/styles/variables' as vars;
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin card-base {
+    background-color: #fff;
+    border-radius: vars.$border-radius-md;
+    box-shadow: vars.$shadow-md;
+    padding: vars.$spacing-md;
+    transition: transform vars.$transition-speed vars.$transition-ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@mixin truncate-text($lines: 1) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

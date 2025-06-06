@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import "./SignIn.scss";
 import logoImage from "../../assets/images/Logo.png";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux"; 
-import { setUser } from "../../store/userSlice";
+import { useNavigate, Link } from "react-router-dom"; 
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/userSlice";
 
 const SigninPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   axios.defaults.withCredentials = true;
 
@@ -26,22 +26,25 @@ const SigninPage = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3000/auth/login", {
+      const response = await axios.post("https://localhost:3000/auth/signin", {
         email,
         password,
       });
 
-      if (response.data.status) {
-        const { token, user } = response.data;
-        localStorage.setItem("authToken", token); 
-        dispatch(setUser({ user, token })); 
-        navigate("/"); 
+      if (response.data.success) {
+        dispatch(setUser(response.data.user));
+        navigate("/");
         alert("Login successful!");
       } else {
-        alert(response.data.message || "Invalid credentials.");
+        if (response.data.message.includes('not verified') && response.data.userId) {
+            alert(response.data.message);
+            navigate(`/verify-otp/${response.data.userId}`);
+        } else {
+            alert(response.data.message || "Invalid credentials.");
+        }
       }
     } catch (error) {
-      console.error(error);
+      console.error("Login error:", error);
       const errorMessage =
         error.response?.data?.message || "An error occurred during login.";
       alert(errorMessage);
@@ -53,9 +56,9 @@ const SigninPage = () => {
   return (
     <div className="login-page">
       <div className="logo-image">
-        <a href="/">
+        <Link to="/">
           <img src={logoImage} alt="Logo" />
-        </a>
+        </Link>
       </div>
       <div className="login-container">
         <h4 className="appname_login">Culture Cart</h4>
@@ -84,14 +87,14 @@ const SigninPage = () => {
             />
           </div>
           <p className="forgot-password">
-            <a href="/forgot-password">Forgot Password?</a>
+            <Link to="/forgot-password">Forgot Password?</Link>
           </p>
           <button type="submit" className="signin-button" disabled={loading}>
             {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
         <p className="signup-link">
-          <a href="/signup">Create an Account</a>
+          <Link to="/signup">Create an Account</Link>
         </p>
       </div>
     </div>

@@ -1,0 +1,285 @@
+.wallet-page-wrapper {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+    box-sizing: border-box;
+}
+
+.app-logo-position {
+    position: absolute; 
+    top: 15px;
+    right: 50px;
+    z-index: 100; 
+
+    img {
+        width: 70px;
+        height: auto;
+    }
+}
+
+.appname_login {
+    position: absolute;
+    top: 40px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    font-size: 2rem;
+    font-weight: 1000;
+    font-family: "Georgia";
+    color: #0A3500;
+    user-select: none;
+    z-index: 99;
+}
+
+.wallet-feature-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 180px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    &.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+    &.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+}
+
+.wallet-section {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+    h3 {
+        font-size: 1.8rem;
+        color: #0A3500;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+
+.balance-section {
+    .balance {
+        font-size: 3.5rem;
+        font-weight: bold;
+        color: #4D7E29;
+        margin-bottom: 20px;
+    }
+    .wallet-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        .action-button {
+            padding: 12px 25px;
+            background-color: #074522;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            &:hover {
+                background-color: #05351a;
+            }
+        }
+    }
+}
+
+.payment-methods-section {
+    .card-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .card-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        background-color: #fcfcfc;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+
+        &.default-card {
+            border-color: #4D7E29;
+            background-color: #e6ffe6;
+            .default-indicator {
+                color: #4D7E29;
+            }
+        }
+
+        .card-details {
+            text-align: left;
+            p {
+                margin: 5px 0;
+                color: #333;
+                font-size: 0.95rem;
+                strong {
+                    font-size: 1.1rem;
+                    color: #0A3500;
+                }
+            }
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: #555;
+                font-size: 1.2rem;
+                transition: color 0.2s ease;
+                &:hover {
+                    color: #074522;
+                }
+            }
+            .default-indicator {
+                font-size: 1.5rem;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .add-card-button {
+        background-color: #4D7E29;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        &:hover {
+            background-color: #3a6220;
+        }
+    }
+
+
+    .add-card-form {
+        background-color: #f0f0f0;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: inset 0 1px 5px rgba(0,0,0,0.05);
+        margin-top: 25px;
+        width: 100%;
+        max-width: 600px;
+        text-align: left;
+
+        h3 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            color: #0A3500;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+                color: #333;
+            }
+            input[type="text"],
+            input[type="email"],
+            select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-sizing: border-box;
+                font-size: 1rem;
+            }
+            &.expiry-cvv-group {
+                display: flex;
+                gap: 15px;
+                div {
+                    flex: 1;
+                }
+                select {
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.9a17.6%2017.6%200%200%200%20-14.8%20-7.7H20.2a17.6%2017.6%200%200%200%20-14.8%207.7%2017.6%2017.6%200%200%200%200%2016.9l136%20150.3a17.6%2017.6%200%200%200%2027.6%200l136-150.3a17.6%2017.6%200%200%200%200-16.9z%22%2F%3E%3C%2Fsvg%3E');
+                    background-repeat: no-repeat;
+                    background-position: right 8px top 50%;
+                    background-size: 12px auto;
+                }
+            }
+            &.checkbox-group {
+                display: flex;
+                align-items: center;
+                label {
+                    margin-bottom: 0;
+                    margin-left: 10px;
+                    font-weight: normal;
+                }
+                input[type="checkbox"] {
+                    width: auto;
+                    margin-right: 0;
+                }
+            }
+        }
+        .submit-button {
+            background-color: #0A3500;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            &:hover {
+                background-color: #072a00;
+            }
+            &:disabled {
+                background-color: #cccccc;
+                cursor: not-allowed;
+            }
+        }
+    }
+}

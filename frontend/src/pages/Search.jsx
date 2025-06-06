@@ -3,18 +3,22 @@ import SmallHeader from "../components/SmallHeader/SmallHeader";
 import Menu from "../components/Menu/Menu";
 import Lines from "../components/ScreenLines/OneLine";
 import SearchMenu from "../components/SearchMenu/SearchMenu";
-
+import VerticalLine from "../components/ScreenLines/VerticalLine";
 export default function Search() {
 
     const SearchStyles = {
-      paddingTop: "100px",
+      paddingTop: "120px",
     };
+    const verticalLineStyles = {
+ 
+  };
 
     return (
       <div className="Search">
           <SearchMenu />
           <SmallHeader />
           <Menu />
+          <VerticalLine customStyles={verticalLineStyles} />
           <Lines />
           <SearchItems
               itemsPerPage={7}

@@ -1,0 +1,127 @@
+
+@use "sass:color";
+@use '@/styles/variables' as vars; 
+@use '@/styles/mixins';             
+
+.store-list-component {
+    padding: vars.$spacing-md; 
+    text-align: center;
+
+    h1 {
+        margin-bottom: vars.$spacing-lg; 
+        color: #4D7E29;     
+        font-size: vars.$font-size-xxl; 
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        user-select: none;
+    }
+
+    .loading-message, .error-message, .no-stores-found {
+        margin-top: vars.$spacing-xl; 
+        font-size: vars.$font-size-lg; 
+        color: vars.$light-text-color; 
+        background-color: color.adjust(vars.$background-light, $lightness: 3%); 
+        padding: vars.$spacing-md; 
+        border-radius: vars.$border-radius-md; 
+        box-shadow: vars.$shadow-md; 
+    }
+    .error-message {
+      background-color: #ffcdd2;
+      color: #d32f2f;
+    }
+    .no-stores-found {
+      background-color: #e0f2f7;
+      color: #345f47;
+    }
+
+
+    .stores-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: vars.$spacing-lg; 
+        justify-content: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: vars.$spacing-md 0; 
+
+        .store-card {
+            @include mixins.card-base; 
+            text-align: center;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+                display: block;
+                height: 100%;
+            }
+
+            h2 {
+                font-size: vars.$font-size-xl; 
+                margin: vars.$spacing-sm 0 vars.$spacing-xs; 
+                color: vars.$secondary-color; 
+                padding: 0 vars.$spacing-sm; 
+                @include mixins.truncate-text(2); 
+            }
+
+            .store-image {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                border-bottom-left-radius: vars.$border-radius-md; 
+                border-bottom-right-radius: vars.$border-radius-md; 
+                display: block;
+            }
+
+            p {
+                font-size: vars.$font-size-base; 
+                color: vars.$light-text-color; 
+                margin-bottom: vars.$spacing-xxs; 
+                padding: 0 vars.$spacing-sm; 
+                @include mixins.truncate-text(1); 
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: vars.$spacing-sm; 
+        h1 {
+            font-size: vars.$font-size-xl; 
+        }
+        .stores-grid {
+            gap: vars.$spacing-md; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            .store-card {
+                .store-image {
+                    height: 150px;
+                }
+            }
+        }
+    }
+}
+.category-filters {
+    display: flex;
+    justify-content: center;
+    gap: vars.$spacing-md; 
+    margin-bottom: vars.$spacing-lg; 
+    flex-wrap: wrap; 
+
+    button {
+        padding: vars.$spacing-sm vars.$spacing-md; 
+        border: 1px solid vars.$border-color; 
+        border-radius: vars.$border-radius-md; 
+        background-color: white;
+        color: vars.$text-color; 
+        font-size: vars.$font-size-base; 
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+        &:hover {
+            background-color: vars.$background-light; 
+        }
+
+        &.active {
+            background-color: #4D7E29; 
+            color: white;
+            border-color: vars.$primary-color; 
+        }
+    }
+}
