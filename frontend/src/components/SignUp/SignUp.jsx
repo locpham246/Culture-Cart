@@ -4,6 +4,8 @@ import axios from "axios";
 import logoImage from "../../assets/images/Logo.png";
 import { useNavigate, Link } from "react-router-dom";
 
+const API_BASE_URL = import.meta.env.VITE_PROD_BASE_URL ? import.meta.env.VITE_PROD_BASE_URL: import.meta.env.VITE_DEV_BASE_URL || "http://localhost:3000";
+
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,7 +35,7 @@ const SignUpPage = () => {
 
     setLoading(true);
     axios
-      .post("https://localhost:3000/auth/signup", { name: fullname, email, password, confirm })
+      .post(`${API_BASE_URL}/auth/signup`, { name: fullname, email, password, confirm })
       .then((response) => {
         if (response.data.success) { 
           alert(response.data.message); 
