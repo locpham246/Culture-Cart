@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import logoImage from "../../assets/images/Logo.png"; 
 import "..//SignIn/ForgotPassword.scss"; 
 
+const API_BASE_URL = import.meta.env.VITE_PROD_BASE_URL ? import.meta.env.VITE_PROD_BASE_URL: import.meta.env.VITE_DEV_BASE_URL || "http://localhost:3000";
+
 const ForgotPasswordPage = () => {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
@@ -27,7 +29,7 @@ const ForgotPasswordPage = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post("https://localhost:3000/auth/sendresetotp", { email });
+      const response = await axios.post(`${API_BASE_URL}/auth/sendresetotp`, { email });
 
       if (response.data.success) {
         alert(response.data.message);
@@ -58,7 +60,7 @@ const ForgotPasswordPage = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post("https://localhost:3000/auth/resetpassword", {
+      const response = await axios.post(`${API_BASE_URL}/auth/resetpassword`, {
         email,
         otp,
         newpassword: newPassword, 
