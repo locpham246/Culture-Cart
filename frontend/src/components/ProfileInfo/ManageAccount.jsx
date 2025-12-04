@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
@@ -8,6 +6,7 @@ import './ManageAccount.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import logoImage from "../../assets/images/Logo.png";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const ManageAccount = () => {
   const dispatch = useDispatch();
@@ -104,8 +103,8 @@ const ManageAccount = () => {
 
     try {
       const response = await axios.put(
-        '/api/profile/password',
-        { userId: user._id, currentPassword, newPassword },
+        `${API_BASE_URL}/api/profile/profile`, {
+           userId: user._id, currentPassword, newPassword },
         { withCredentials: true }
       );
 
@@ -137,8 +136,7 @@ const ManageAccount = () => {
     resetMessages();
 
     try {
-      const response = await axios.post(
-        '/api/profile/request-email-change',
+      const response = await axios.post(`${API_BASE_URL}/api/profile/request-email-change`,
         { userId: user._id, newEmail: newEmailRequest },
         { withCredentials: true }
       );
@@ -167,8 +165,7 @@ const ManageAccount = () => {
     resetMessages();
 
     try {
-      const response = await axios.post(
-        '/api/profile/confirm-email-change',
+      const response = await axios.post(`${API_BASE_URL}/api/profile/confirm-email-change`,
         { userId: user._id, otp: emailOtp },
         { withCredentials: true }
       );
@@ -207,8 +204,7 @@ const ManageAccount = () => {
     }
 
     try {
-      const response = await axios.delete(
-        '/api/profile/account', 
+      const response = await axios.delete( `${API_BASE_URL}/api/profile/account`, 
         { data: { userId: user._id, password: passwordForDeletion }, withCredentials: true } 
       );
 
