@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import './StoreProductList.scss'; 
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const StoreProductList = () => {
     const { storeId } = useParams(); 
     const [store, setStore] = useState(null);
@@ -16,7 +16,7 @@ const StoreProductList = () => {
                 setLoading(true);
                 setError(null);
 
-                const storeResponse = await axios.get(`https://localhost:3000/api/stores/${storeId}`);
+                const storeResponse = await axios.get(`${API_BASE_URL}/api/stores/${storeId}`);
                 if (storeResponse.data.success) {
                     setStore(storeResponse.data.store);
                 } else {
@@ -25,7 +25,7 @@ const StoreProductList = () => {
                     return;
                 }
 
-                const productsResponse = await axios.get(`https://localhost:3000/api/store-products?storeId=${storeId}`);
+                const productsResponse = await axios.get(`${API_BASE_URL}/api/store-products?storeId=${storeId}`);
                 if (productsResponse.data.success) {
                     const availableProducts = productsResponse.data.storeProducts.filter(sp => sp.isAvailable && sp.stock > 0);
                     setStoreProducts(availableProducts);
