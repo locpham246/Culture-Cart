@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../SignUp/OTPVerify.scss'; 
 import logoImage from "../../assets/images/Logo.png";
 
+const API_BASE_URL = import.meta.env.VITE_PROD_BASE_URL ? import.meta.env.VITE_PROD_BASE_URL: import.meta.env.VITE_DEV_BASE_URL || "http://localhost:3000";
 const OTPVerify = () => {
     const { userId } = useParams(); 
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ const OTPVerify = () => {
         setMessageType('');
 
         try {
-            const response = await axios.post('https://localhost:3000/auth/verifyemail', { userId, otp });
+            const response = await axios.post(`${API_BASE_URL}/auth/verifyemail`, { userId, otp });
 
             if (response.data.success) {
                 setMessage(response.data.message + " You can now sign in.");
@@ -40,13 +41,13 @@ const OTPVerify = () => {
         }
     };
 
-    const handleResendOtp = async () => {
+    const handleResendOtp = async () => {a
         setLoading(true);
         setMessage('');
         setMessageType('');
 
         try {
-            const response = await axios.post('https://localhost:3000/auth/sendotp', { userId }); 
+            const response = await axios.post(`${API_BASE_URL}/auth/sendotp`, { userId });
             if (response.data.success) {
                 setMessage(response.data.message);
                 setMessageType('success');
