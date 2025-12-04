@@ -8,6 +8,7 @@ import { setUser } from '../../redux/userSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard, faPlusCircle, faTrash, faEdit, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const Wallet = () => {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const Wallet = () => {
     console.log('--- validateCardNumber START ---');
     console.log(`[Wallet.jsx] validateCardNumber: Input number: '${cardNumber}'`);
 
-    const cleanedNumber = String(cardNumber).replace(/\D/g, ''); // Ensure it's a string and remove non-digits
+    const cleanedNumber = String(cardNumber).replace(/\D/g, ''); 
 
     if (!cleanedNumber || cleanedNumber.length < 13 || cleanedNumber.length > 19) {
         let reason = '';
@@ -85,7 +86,7 @@ const Wallet = () => {
       }
       
       sum += digit;
-      shouldDouble = !shouldDouble; // Đảo ngược trạng thái cho chữ số tiếp theo
+      shouldDouble = !shouldDouble; 
       console.log(`[Wallet.jsx]    Current sum=${sum}, shouldDouble_after_calc=${shouldDouble}`);
     }
 
@@ -130,14 +131,14 @@ const Wallet = () => {
         let response;
         if (editingCardId) {
             console.log('Frontend: Sending PUT request for card update.');
-            response = await axios.put('https://localhost:3000/api/profile/payment-card', {
+            response = await axios.put(`${API_BASE_URL}/api/profile/payment-card`, {
                 userId: user._id,
                 cardId: editingCardId,
                 updatedCard: cardData
             }, { withCredentials: true });
         } else {
             console.log('Frontend: Sending POST request for adding new card.');
-            response = await axios.post('https://localhost:3000/api/profile/payment-card', {
+            response = await axios.post(`${API_BASE_URL}/api/profile/payment-card`, {
                 userId: user._id,
                 card: cardData
             }, { withCredentials: true });
@@ -147,7 +148,7 @@ const Wallet = () => {
 
         if (response.data.success) {
             dispatch(setUser(response.data.user));
-            console.log('Frontend: Dispatched setUser. New user state after dispatch:', response.data.user); // Kiểm tra dữ liệu được dispatch
+            console.log('Frontend: Dispatched setUser. New user state after dispatch:', response.data.user); 
             setMessage(editingCardId ? 'Card updated successfully!' : 'Card added successfully!');
             setMessageType('success');
             setNewCard({ cardHolderName: '', cardNumber: '', expiryMonth: '', expiryYear: '', cvv: '', cardType: '', isDefault: false });
@@ -158,7 +159,7 @@ const Wallet = () => {
             setMessageType('error');
         }
     } catch (error) {
-        console.error('Frontend: Error adding/updating card:', error.response?.data || error.message); // Log lỗi chi tiết hơn
+        console.error('Frontend: Error adding/updating card:', error.response?.data || error.message); 
         setMessage(error.response?.data?.message || 'An error occurred. Please try again.');
         setMessageType('error');
     }
@@ -303,7 +304,7 @@ const Wallet = () => {
           <button className="add-card-button" onClick={() => {
             setShowAddCardForm(!showAddCardForm);
             setEditingCardId(null);
-            setNewCard({ cardHolderName: '', cardNumber: '', expiryMonth: '', expiryYear: '', cvv: '', cardType: '', isDefault: false }); // Clear form
+            setNewCard({ cardHolderName: '', cardNumber: '', expiryMonth: '', expiryYear: '', cvv: '', cardType: '', isDefault: false }); 
             setMessage(''); setMessageType('');
           }}>
             <FontAwesomeIcon icon={faPlusCircle} /> {showAddCardForm ? 'Cancel' : 'Add New Card'}
