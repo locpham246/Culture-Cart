@@ -1,127 +1,107 @@
-import React, { useState } from "react";
-import "./SignUp.scss";
-import axios from "axios";
+import React, { useState } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
+import '../SignUp/OTPVerify.scss'; 
 import logoImage from "../../assets/images/Logo.png";
-import { useNavigate, Link } from "react-router-dom";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const OTPVerify = () => {
+    const { userId } = useParams(); 
+    const navigate = useNavigate();
+    const [otp, setOtp] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState('');
+    const [messageType, setMessageType] = useState(''); 
 
-const SignUpPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirm, setConfirm] = useState("");
-  const [fullname, setFullname] = useState("");
-  const [loading, setLoading] = useState(false);
+    const handleVerifyOtp = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setMessage('');
+        setMessageType('');
 
-  const navigate = useNavigate();
+        try {
+            const response = await axios.post(`${API_BASE_URL}/auth/verifyemail`, { userId, otp });
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
-  };
-
-  const handleSignup = (e) => { 
-    e.preventDefault();
-
-    if (!validateEmail(email)) {
-      alert("Invalid email!");
-      return;
-    }
-
-    if (password !== confirm) {
-      alert("Passwords do not match!"); 
-      return;
-    }
-
-    setLoading(true);
-    axios
-      .post(`${API_BASE_URL}/auth/signup`, { name: fullname, email, password, confirm })
-      .then((response) => {
-        if (response.data.success) { 
-          alert(response.data.message); 
-          navigate(`/verify-otp/${response.data.userId}`);
-        } else {
-          alert(response.data.message || "Something went wrong."); 
+            if (response.data.success) {
+                setMessage(response.data.message + " You can now sign in.");
+                setMessageType('success');
+                setTimeout(() => {
+                    navigate('/signin'); 
+                }, 3000);
+            } else {
+                setMessage(response.data.message || 'OTP verification failed.');
+                setMessageType('error');
+            }
+        } catch (error) {
+            console.error('OTP verification error:', error);
+            setMessage(error.response?.data?.message || 'An error occurred during OTP verification.');
+            setMessageType('error');
+        } finally {
+            setLoading(false);
         }
-      })
-      .catch((err) => {
-        console.error(err);
-        alert(err.response?.data?.message || "An error occurred during sign up."); 
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
+    };
 
-  return (
-    <div className="login-page">
-      <div className="logo-image">
-        <a href="/">
-          <img src={logoImage} alt="Logo" />
-        </a>
-      </div>
-      <div className="login-container">
-        <h4 className="appname_login">Culture Cart</h4>
+    const handleResendOtp = async () => {a
+        setLoading(true);
+        setMessage('');
+        setMessageType('');
 
-        <form onSubmit={handleSignup}>
-          <div className="fullname-box">
-            <label htmlFor="fullname"></label>
-            <input
-              type="text"
-              id="fullname"
-              value={fullname}
-              onChange={(e) => setFullname(e.target.value)}
-              placeholder="Enter Full Name" 
-              required
-            />
-          </div>
+        try {
+            const response = await axios.post(`${API_BASE_URL}/auth/sendotp`, { userId });
+            if (response.data.success) {
+                setMessage(response.data.message);
+                setMessageType('success');
+            } else {
+                setMessage(response.data.message || 'Failed to resend OTP.');
+                setMessageType('error');
+            }
+        } catch (error) {
+            console.error('Resend OTP error:', error);
+            setMessage(error.response?.data?.message || 'An error occurred while resending OTP.');
+            setMessageType('error');
+        } finally {
+            setLoading(false);
+        }
+    };
 
-          <div className="email-box">
-            <label htmlFor="email"></label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter Email" 
-              required
-            />
-          </div>
+    return (
+        <div className="otp-verification-page">
+            <div className="logo-image">
+                <Link to="/">
+                    <img src={logoImage} alt="Logo" />
+                </Link>
+            </div>
+            <div className="otp-container">
+                <h4 className="appname_otp">Culture Cart</h4> 
+                <h2>Verify Your Email</h2>
+                <p>An OTP has been sent to your email address. Please enter it below to verify your account.</p>
 
-          <div className="password-box_signup">
-            <label htmlFor="password"></label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter Password" 
-              required
-              minLength="6"
-            />
-          </div>
+                {message && <div className={`message ${messageType}`}>{message}</div>}
 
-          <div className="confirm-password-box">
-            <label htmlFor="confirm-password"></label>
-            <input
-              type="password"
-              id="confirm-password"
-              value={confirm}
-              onChange={(e) => setConfirm(e.target.value)}
-              placeholder="Confirm Password" 
-              required
-            />
-          </div>
-
-          <button type="submit" className="signup-button" disabled={loading}>
-            {loading ? "Signing up..." : "Create Account"} 
-          </button>
-
-          <p>Have an Account? <Link to="/signin">Sign In</Link></p> 
-        </form>
-      </div>
-    </div>
-  );
+                <form onSubmit={handleVerifyOtp}>
+                    <div className="otp-box">
+                        <label htmlFor="otp"></label>
+                        <input
+                            type="text"
+                            id="otp"
+                            value={otp}
+                            onChange={(e) => setOtp(e.target.value)}
+                            placeholder="Enter OTP"
+                            required
+                            maxLength="6"
+                        />
+                    </div>
+                    <button type="submit" className="verify-button" disabled={loading}>
+                        {loading ? "Verifying..." : "Verify Account"}
+                    </button>
+                    <button type="button" className="resend-otp-button" onClick={handleResendOtp} disabled={loading}>
+                        Resend OTP
+                    </button>
+                </form>
+                <p>Already verified? <Link to="/signin">Sign In</Link></p>
+            </div>
+        </div>
+    );
 };
 
-export default SignUpPage;
+export default OTPVerify;
