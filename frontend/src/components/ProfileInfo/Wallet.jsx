@@ -82,7 +82,7 @@ const Wallet = () => {
         if (digit > 9) {
           digit -= 9; 
         }
-        console.log(`[Wallet.jsx]    Doubled and summed digit=${digit}`);
+        console.log(`[Wallet.jsx] Doubled and summed digit=${digit}`);
       }
       
       sum += digit;
@@ -189,7 +189,7 @@ const Wallet = () => {
     }
     if (window.confirm('Are you sure you want to delete this card?')) {
       try {
-        const response = await axios.delete('https://localhost:3000/api/profile/payment-card', {
+        const response = await axios.delete(`${API_BASE_URL}/api/profile/payment-card`, {
             data: { userId: user._id, cardId },
             withCredentials: true
           });
