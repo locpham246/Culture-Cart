@@ -6,6 +6,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/userSlice";
 
+const API_BASE_URL = import.meta.env.VITE_PROD_BASE_URL ? import.meta.env.VITE_PROD_BASE_URL: import.meta.env.VITE_DEV_BASE_URL || "http://localhost:3000";
+
 const SigninPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +28,7 @@ const SigninPage = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("https://localhost:3000/auth/signin", {
+      const response = await axios.post(`${API_BASE_URL}/auth/signin`, {
         email,
         password,
       });
