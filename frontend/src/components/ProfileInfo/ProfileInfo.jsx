@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 
 import defaultAvatarImage from "../../assets/images/default_avatar.png"; 
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const ProfileInfo = () => {
   const dispatch = useDispatch();
@@ -48,9 +49,7 @@ const ProfileInfo = () => {
 
       try {
         const response = await axios.post(
-          'https://localhost:3000/api/profile/avatar',
-          formData,
-          {
+          `${API_BASE_URL}/api/profile/avatar`,formData,{
             headers: {
               'Content-Type': 'multipart/form-data',
             },
