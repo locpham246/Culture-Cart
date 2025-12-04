@@ -1,10 +1,10 @@
-
-
 import React, { useState, useEffect } from "react";
 import "./SearchItemsList.scss";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from 'axios';
+
+const API_BASE_URL = import.meta.env.VITE_PROD_BASE_URL ? import.meta.env.VITE_PROD_BASE_URL : import.meta.env.VITE_DEV_BASE_URL || "http://localhost:3000";
 
 const Collection = ({
   itemsPerPage = 7,
@@ -24,7 +24,7 @@ const Collection = ({
   useEffect(() => {
     const fetchProductSummaries = async () => {
       try {
-        const response = await axios.get('https://localhost:3000/api/store-products/search-summary', {
+        const response = await axios.get(`${API_BASE_URL}/api/store-products/search-summary`, {
           params: {
             category: category,
             search: searchQuery 
