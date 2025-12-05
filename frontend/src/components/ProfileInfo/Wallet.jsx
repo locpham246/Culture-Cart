@@ -234,7 +234,7 @@ const Wallet = () => {
             <img src={logoImage} alt="Logo" />
           </Link>
         </div>
-        <h4 className="appname_login">Culture Cart</h4>
+        <h4 className="appname_login">Folk Cart</h4>
 
         <div className="wallet-feature-container">
           <p>Please log in to view your wallet details.</p>
@@ -251,7 +251,7 @@ const Wallet = () => {
           <img src={logoImage} alt="Logo" />
         </Link>
       </div>
-      <h4 className="appname_login">Culture Cart</h4>
+      <h4 className="appname_login">Folk Cart</h4>
 
       <div className="wallet-feature-container">
         <h2>My Wallet & Payment Methods</h2>
