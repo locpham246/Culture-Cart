@@ -63,7 +63,7 @@ const SigninPage = () => {
         </Link>
       </div>
       <div className="login-container">
-        <h4 className="appname_login">Culture Cart</h4>
+        <h4 className="appname_login">Folk Cart</h4>
 
         <form onSubmit={handleLogin}>
           <div className="email-box">
