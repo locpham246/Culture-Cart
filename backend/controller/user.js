@@ -1,7 +1,7 @@
 import { User } from '../models/User.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken'; 
-import transporter from '../config/nodemailer.js';
+import { apiInstance, brevo } from '../config/brevo.js'; 
 
 export const signup = async (req,res) => {
     const { name, email, password, confirm} = req.body;
@@ -27,13 +27,15 @@ export const signup = async (req,res) => {
         user.verifyotpexp = Date.now() + 24 * 60 * 60 * 1000;
         await user.save();
 
-        const mailOptions = {
-            from: process.env.SENDER_EMAIL,
-            to: email,
-            subject: 'Verify Your CultureCart Account - OTP',
-            html: `Hello ${name}, welcome to CultureCart! Please use this OTP code to verify your account: <strong>${otp}</strong>. This OTP is valid for 24 hours. Please do not share this code with anyone. We hope you enjoy our website! `
-        }
-        await transporter.sendMail(mailOptions);
+        const sendSmtpEmail = new brevo.SendSmtpEmail(); 
+        sendSmtpEmail.sender = { email: process.env.SENDER_EMAIL, name: 'CultureCart Support' };
+        sendSmtpEmail.to = [{ email: email, name: name }];
+        sendSmtpEmail.subject = 'Verify Your CultureCart Account - OTP';
+        sendSmtpEmail.htmlContent = `
+            Hello ${name}, welcome to CultureCart! Please use this OTP code to verify your account: 
+            <strong>${otp}</strong>. This OTP is valid for 24 hours.
+        `;
+        await apiInstance.sendTransacEmail(sendSmtpEmail);
 
         return res.json({
             success: true,
@@ -102,13 +104,14 @@ export const signin = async (req, res)=> {
         return res.json({success: false, message: error.message || 'An error occurred during signin.'})
     }
 }
+
 export const signout = async(req, res) => {
     try{
 
         res.clearCookie('token', {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: process.env.NODE_ENV === 'production' ? 'none': 'Lax',
+            secure: true,
+            sameSite: 'None',
             path: '/'
         });
         return res.json({success: true, message: 'Signed out successfully!'})
@@ -118,6 +121,7 @@ export const signout = async(req, res) => {
         return res.json({success: false, message: error.message || 'An error occurred during signout.'})
     }
 }
+
 
 export const sendverifyotp = async(req, res) =>{
     try{
@@ -135,13 +139,16 @@ export const sendverifyotp = async(req, res) =>{
         user.verifyotpexp = Date.now() + 24 * 60 * 60 * 1000
         await user.save();
 
-        const mailOption = {
-            from: process.env.SENDER_EMAIL,
-            to: user.email,
-            subject: 'New OTP to verify your account',
-            html: `Your OTP is: <strong>${otp}</strong>. Please use this OTP code to verify your account: <strong>${otp}</strong>. This OTP is valid for 24 hours. Please do not share this code with anyone.`
-        }
-        await transporter.sendMail(mailOption)
+        const sendSmtpEmail = new brevo.SendSmtpEmail(); 
+        sendSmtpEmail.sender = { email: process.env.SENDER_EMAIL, name: 'CultureCart Verification' };
+        sendSmtpEmail.to = [{ email: user.email, name: user.name }];
+        sendSmtpEmail.subject = 'New OTP to verify your account';
+        sendSmtpEmail.htmlContent = `
+            Your OTP is: <strong>${otp}</strong>. 
+            Please use this OTP code to verify your account: <strong>${otp}</strong>. 
+            This OTP is valid for 24 hours. Please do not share this code with anyone.
+        `;
+        await apiInstance.sendTransacEmail(sendSmtpEmail);
 
         res.json({success: true, message: `OTP has been sent to this email: ${user.email}`})
     }catch(error){
@@ -173,13 +180,17 @@ export const verifyEmail = async(req,res) => {
         user.verifyotpexp = 0;
         await user.save()
 
-        const welcomeMailOptions = {
-            from: process.env.SENDER_EMAIL,
-            to: user.email,
-            subject: 'Welcome to CultureCart!',
-            html: `Hello ${user.name},\n\nYour CultureCart account has been successfully verified! Welcome to our community. You can now log in and start shopping for unique cultural products.\n\nThank you for joining!\nCultureCart Team.`
-        }
-        await transporter.sendMail(welcomeMailOptions);
+        const sendWelcomeEmail = new brevo.SendSmtpEmail(); 
+        sendWelcomeEmail.sender = { email: process.env.SENDER_EMAIL, name: 'CultureCart Team' };
+        sendWelcomeEmail.to = [{ email: user.email, name: user.name }];
+        sendWelcomeEmail.subject = 'Welcome to CultureCart!';
+        sendWelcomeEmail.htmlContent = `
+            Hello ${user.name},<br><br>Your CultureCart account has been successfully verified! 
+            Welcome to our community. You can now log in and start shopping for unique cultural products.<br><br>
+            Thank you for joining!<br>CultureCart Team.
+        `;
+        await apiInstance.sendTransacEmail(sendWelcomeEmail);
+
 
         return res.json({success: true, message: 'Email has been successfully verified!'})
     }catch(error){
@@ -187,6 +198,7 @@ export const verifyEmail = async(req,res) => {
         return res.json({success: false, message: error.message || 'An error occurred during email verification.'})
     }
 }
+
 
 export const isAuthenticated = async(req,res)=>{
     try{
@@ -210,26 +222,28 @@ export const sendresetotp = async(req,res)=>{
         if(!user){
             return res.json({success: false, message: 'Email not found in the system.'})
         }
-        const otp = String(Math.floor( 100000+ Math.random()  * 900000))
+        const otp = String(Math.floor( 100000+ Math.random() * 900000))
 
         user.resetotp = otp
         user.resetotpexpr = Date.now() + 15 * 60 * 1000 
         await user.save();
 
-        const mailOption = {
-            from: process.env.SENDER_EMAIL,
-            to: user.email,
-            subject: 'Password Reset OTP',
-            html: `This is your OTP to reset your password: <strong>${otp}</strong>. Please use this code to reset your password! This code is valid for 15 minutes.`
-        }
-        await transporter.sendMail(mailOption)
+        const sendResetEmail = new brevo.SendSmtpEmail(); 
+        sendResetEmail.sender = { email: process.env.SENDER_EMAIL, name: 'CultureCart Security' };
+        sendResetEmail.to = [{ email: user.email, name: user.name }];
+        sendResetEmail.subject = 'Password Reset OTP';
+        sendResetEmail.htmlContent = 
+            `This is your OTP to reset your password: <strong>${otp}</strong>. 
+            Please use this code to reset your password! This code is valid for 15 minutes.`;
+        await apiInstance.sendTransacEmail(sendResetEmail);
+
+
         return res.json({success: true, message: 'Password reset OTP has been sent to your email.'})
     }catch(error){
         console.error("Send reset OTP error:", error);
         return res.json({success: false, message: error.message || 'An error occurred while sending reset OTP.'})
     }
 }
-
 
 export const resetuserpassword = async(req,res)=>{
     const {email, otp, newpassword} = req.body
