@@ -241,7 +241,7 @@ const ManageAccount = () => {
             <img src={logoImage} alt="Culture Cart Logo" />
           </Link>
         </div>
-        <h4 className="appname_login">Culture Cart</h4>
+        <h4 className="appname_login">Folk Cart</h4>
         <div className="manage-account-feature-container">
           <p>Please log in to manage your account.</p>
         </div>
@@ -258,7 +258,7 @@ const ManageAccount = () => {
           <img src={logoImage} alt="Culture Cart Logo" />
         </Link>
       </div>
-      <h4 className="appname_login">Culture Cart</h4>
+      <h4 className="appname_login">Folk Cart</h4>
       <div className="manage-account-feature-container">
         <h2>Manage Account Details</h2>
         {message && <p className={`message ${messageType}`}>{message}</p>}
