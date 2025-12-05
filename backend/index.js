@@ -7,19 +7,19 @@ import profilerouter from './routes/profile.js';
 import cookieParser from 'cookie-parser';
 
 import ProductModel from "./models/Product.js"; 
-import { Store } from "./models/Store.js";       
-import { StoreProduct } from "./models/StoreProduct.js"; 
+import { Store } from "./models/Store.js";       
+import { StoreProduct } from "./models/StoreProduct.js";
 
 import productRoutes from "./routes/products.js";
-import storeRoutes from "./routes/store.js";    
+import storeRoutes from "./routes/store.js";    
 import storeProductRoutes from "./routes/storeProduct.js"; 
 
 import connectDB from './config/mongodb.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import https from 'https';
-import fs from 'fs';
+// import https from 'https';
+// import fs from 'fs';
 
 dotenv.config();
 
@@ -31,11 +31,13 @@ connectDB();
 
 const app = express();
 app.use(express.json());
+const allowedOrigins = [
+    'https://folk-cart-weum.vercel.app', 
+    'https://localhost:5173',
+    'https://127.0.0.1:5173'
+];
 app.use(cors({
-    origin: [
-        'https://localhost:5173',
-        'https://127.0.0.1:5173'
-    ],
+    origin: allowedOrigins,
     methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],
     allowedHeaders: [
         "Content-Type",
@@ -66,19 +68,18 @@ mongoose.connection.once('open', () => {
 
 app.use('/auth', userrouter);
 app.use('/api/profile', profilerouter);
-
 app.use("/api/products", productRoutes);
-
-
 app.use("/api/stores", storeRoutes);
 app.use("/api/store-products", storeProductRoutes);
 
+// const httpsOptions = {
+//   key: fs.readFileSync(path.join(__dirname, 'localhost-key.pem')),
+//   cert: fs.readFileSync(path.join(__dirname, 'localhost.pem'))
+// };
 
-const httpsOptions = {
-  key: fs.readFileSync(path.join(__dirname, 'localhost+1-key.pem')),
-  cert: fs.readFileSync(path.join(__dirname, 'localhost+1.pem'))
-};
-
-https.createServer(httpsOptions, app).listen(port, () => {
-    console.log(`HTTPS Server is running on port ${port}`);
+// https.createServer(httpsOptions, app).listen(port, () => {
+//     console.log(`HTTPS Server is running on port ${port}`);
+// });
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
