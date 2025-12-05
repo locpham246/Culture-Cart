@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import "./ProfileInfo.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -80,7 +78,7 @@ const ProfileInfo = () => {
           <img src={logoImage} alt="Logo" />
         </a>
       </div>
-      <h4 className="appname_login">Culture Cart</h4>
+      <h4 className="appname_login">Folk Cart</h4>
       <div className="profile-header">
         <label htmlFor="file-upload" className="profile-picture-wrapper">
           <img
