@@ -4,7 +4,7 @@ import axios from "axios";
 import logoImage from "../../assets/images/Logo.png";
 import { useNavigate, Link } from "react-router-dom";
 
-const API_BASE_URL = import.meta.env.VITE_PROD_BASE_URL ? import.meta.env.VITE_PROD_BASE_URL: import.meta.env.VITE_DEV_BASE_URL || "http://localhost:3000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
@@ -61,7 +61,7 @@ const SignUpPage = () => {
         </a>
       </div>
       <div className="login-container">
-        <h4 className="appname_login">Culture Cart</h4>
+        <h4 className="appname_login">Folk Cart</h4>
 
         <form onSubmit={handleSignup}>
           <div className="fullname-box">
