@@ -1,5 +1,5 @@
 {
-  "name": "culture_cart",
+  "name": "folk_cart",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -58,6 +58,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.3",
-    "vite": "^6.3.5"
+    "vite": "^6.4.1"
   }
 }
