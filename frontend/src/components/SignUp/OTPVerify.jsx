@@ -72,7 +72,7 @@ const OTPVerify = () => {
                 </Link>
             </div>
             <div className="otp-container">
-                <h4 className="appname_otp">Culture Cart</h4> 
+                <h4 className="appname_otp">Folk Cart</h4> 
                 <h2>Verify Your Email</h2>
                 <p>An OTP has been sent to your email address. Please enter it below to verify your account.</p>
 
