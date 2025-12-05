@@ -1,106 +1,166 @@
+// frontend/src/components/SignIn/ForgotPassword.jsx
+
 import React, { useState } from "react";
-import "./SignIn.scss";
-import logoImage from "../../assets/images/Logo.png";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom"; 
-import { useDispatch } from "react-redux";
-import { setUser } from "../../redux/userSlice";
+import { Link, useNavigate } from "react-router-dom";
+import logoImage from "../../assets/images/Logo.png"; 
+import "..//SignIn/ForgotPassword.scss"; 
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const SigninPage = () => {
+const ForgotPasswordPage = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [otp, setOtp] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [step, setStep] = useState(1); 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  axios.defaults.withCredentials = true;
+  axios.defaults.withCredentials = true; 
 
-  const handleLogin = async (e) => {
+  const handleSendOtp = async (e) => {
     e.preventDefault();
 
-    if (!email || !password) {
-      alert("Please enter both email and password.");
+    if (!email) {
+      alert("Please enter your email address.");
       return;
     }
 
     setLoading(true);
-
     try {
-      const response = await axios.post(`${API_BASE_URL}/auth/signin`, {
+      const response = await axios.post(`${API_BASE_URL}/auth/sendresetotp`, { email });
+
+      if (response.data.success) {
+        alert(response.data.message);
+        setStep(2); 
+      } else {
+        alert(response.data.message || "Failed to send OTP.");
+      }
+    } catch (error) {
+      console.error("Send OTP error:", error);
+      alert(error.response?.data?.message || "An error occurred while sending OTP.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+
+    if (!otp || !newPassword || !confirmPassword) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      alert("New password and confirm password do not match.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await axios.post(`${API_BASE_URL}/auth/resetpassword`, {
         email,
-        password,
+        otp,
+        newpassword: newPassword, 
       });
 
       if (response.data.success) {
-        dispatch(setUser(response.data.user));
-        navigate("/");
-        alert("Login successful!");
+        alert(response.data.message);
+        navigate("/signin");
       } else {
-        if (response.data.message.includes('not verified') && response.data.userId) {
-            alert(response.data.message);
-            navigate(`/verify-otp/${response.data.userId}`);
-        } else {
-            alert(response.data.message || "Invalid credentials.");
-        }
+        alert(response.data.message || "Failed to reset password.");
       }
     } catch (error) {
-      console.error("Login error:", error);
-      const errorMessage =
-        error.response?.data?.message || "An error occurred during login.";
-      alert(errorMessage);
+      console.error("Reset password error:", error);
+      alert(error.response?.data?.message || "An error occurred while resetting password.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="login-page">
+    <div className="forgot-password-page">
       <div className="logo-image">
         <Link to="/">
           <img src={logoImage} alt="Logo" />
         </Link>
       </div>
-      <div className="login-container">
-        <h4 className="appname_login">Folk Cart</h4>
+      <div className="forgot-password-container">
+        <h4 className="appname_forgot_password">Folk Cart</h4>
+        <h2>Forgot Password</h2>
 
-        <form onSubmit={handleLogin}>
-          <div className="email-box">
-            <label htmlFor="email"></label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter Email"
-              required
-            />
-          </div>
-          <div className="password-box_signin">
-            <label htmlFor="password"></label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter Password"
-              required
-            />
-          </div>
-          <p className="forgot-password">
-            <Link to="/forgot-password">Forgot Password?</Link>
-          </p>
-          <button type="submit" className="signin-button" disabled={loading}>
-            {loading ? "Signing in..." : "Sign In"}
-          </button>
-        </form>
-        <p className="signup-link">
-          <Link to="/signup">Create an Account</Link>
+        {step === 1 ? (
+          <form onSubmit={handleSendOtp}>
+            <p>Please enter your email address to receive an OTP code.</p>
+            <div className="input-box">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <button type="submit" className="send-otp-button" disabled={loading}>
+              {loading ? "Sending OTP..." : "Send OTP"}
+            </button>
+          </form>
+        ) : (
+          <form onSubmit={handleResetPassword}>
+            <p>An OTP has been sent to your email. Please enter it below along with your new password.</p>
+            <div className="input-box">
+              <label htmlFor="otp">OTP Code</label>
+              <input
+                type="text"
+                id="otp"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+                placeholder="Enter OTP"
+                required
+              />
+            </div>
+            <div className="input-box">
+              <label htmlFor="newPassword">New Password</label>
+              <input
+                type="password"
+                id="newPassword"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                placeholder="Enter new password"
+                required
+              />
+            </div>
+            <div className="input-box">
+              <label htmlFor="confirmPassword">Confirm New Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Confirm new password"
+                required
+              />
+            </div>
+            <button type="submit" className="reset-password-button" disabled={loading}>
+              {loading ? "Resetting Password..." : "Reset Password"}
+            </button>
+            <p className="resend-otp-link">
+              <span onClick={() => setStep(1)} style={{ cursor: 'pointer', color: '#4D7E29', textDecoration: 'underline' }}>
+                Resend OTP or Change Email
+              </span>
+            </p>
+          </form>
+        )}
+        <p className="back-to-signin">
+          Remember your password? <Link to="/signin">Sign In</Link>
         </p>
       </div>
     </div>
   );
 };
 
-export default SigninPage;
+export default ForgotPasswordPage;
