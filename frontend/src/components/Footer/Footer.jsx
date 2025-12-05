@@ -13,7 +13,7 @@ const Footer = () => {
 
         <div className="bottom1">
           <div className="bottomContent">
-            <h4>ABOUT CULTURE CART</h4>
+            <h4>ABOUT FOLK CART</h4>
             <p>Who We Are</p>
             <p>Investor Relations</p>
             <p>Contact Us</p>
